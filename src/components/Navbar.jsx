@@ -2,8 +2,7 @@ import { Link } from "react-router-dom"
 
 const Navbar = () => {
     return (
-        <nav>
-            <ul>
+        <nav className="navbar">
                 <Link to="/">Home</Link>
                 <select name="topics" id="topic-select">
                     <option value="topic-0">Choose a topic</option>
@@ -11,8 +10,7 @@ const Navbar = () => {
                     <option value="topic-1">Topic 2</option>
                     <option value="topic-1">Topic 3</option>
                 </select>
-                <li>Username</li>
-            </ul>
+                <p>Username</p>
         </nav>
     )
 }

@@ -3,6 +3,7 @@
   /* margin: 0 auto; */
   /* padding: 2rem; */
   text-align: center;
+  font-family: sans-serif;
 }
 
 * {
@@ -13,19 +14,12 @@ header {
   border: 1px solid hotpink;
 }
 
-nav {
+.navbar {
   border: 1px solid greenyellow;
-}
-
-nav > ul {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;  
-}
-
-nav > ul > li {
-  list-style: none;
-  margin-left: 0;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 .sort-topics {
@@ -34,21 +28,25 @@ nav > ul > li {
 
 .article-list {
   border: 1px solid grey;
-}
-
-article {
-  border: 1px solid blue;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 ul {
-  margin-left: 0;
+  list-style-type: none;
+  display: contents;
 }
 
 .article-li {
-  list-style: none;
-  margin-left: 0;
+  border: 1px solid blue;
+  list-style-type: none;
 }
 
 .article-img {
   height: 100px;
+}
+
+h2, h3, p {
+  font-size: 0.9rem;
 }
