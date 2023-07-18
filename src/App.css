@@ -14,8 +14,12 @@ h1 {
   font-size: 1.4rem;
 }
 
-h2, h3, h4, p {
+h2, h3, h4 {
   font-size: 0.9rem;
+}
+
+p {
+  font-size: 0.8rem;
 }
 
 .by-author {
@@ -44,11 +48,24 @@ header {
 
 .article-card {
   padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.single-article-card {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .article-card:hover {
   box-shadow: 5px 5px 5px black;
-  cursor: pointer;
+}
+
+.article-info {
+  display: flex;
 }
 
 .article-list {
@@ -56,6 +73,12 @@ header {
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+.article-body {
+  text-align: left;
+  width: 80vw;
+  font-size: large;
 }
 
 ul {
