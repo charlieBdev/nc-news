@@ -6,7 +6,6 @@ const ArticlesList = () => {
 
     const [articles, setArticles] = useState([])
     const [isLoading, setIsLoading] = useState(true)
-    const [isError, setIsError] = useState(false)
 
     useEffect(() => {
         getArticles()
@@ -14,15 +13,10 @@ const ArticlesList = () => {
             setArticles(articles)
             setIsLoading(false)
         })
-        .catch(() => {
-            setIsError(true)
-        })
     }, [])
 
     if (isLoading) {
         return <p>Loading...</p>
-    } else if (isError) {
-        return <p>Error!</p>
     } else {
         return (
             <section className="article-list">
