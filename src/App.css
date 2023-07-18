@@ -99,6 +99,14 @@ ul {
   cursor: pointer;
 }
 
+.liked-btn {
+  background-color: darkgrey;
+}
+
+.liked-btn:hover {
+  cursor: pointer;
+}
+
 .comment-list {
   border: 1px solid fuchsia;
 }

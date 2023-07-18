@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom"
 import { formatDate } from "../utils/utils"
 
+
 const ArticleCard = (props) => {
     const {
         author,
@@ -23,7 +24,6 @@ const ArticleCard = (props) => {
                     <p>Created: {formatDate(created_at)}</p>
                 </div>
                 <p>{votes} votes</p>
-                <button className="like-btn">👍</button>
                 <p>{comment_count} comments</p>
         </article>
     )
