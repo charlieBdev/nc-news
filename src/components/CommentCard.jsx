@@ -23,5 +23,4 @@ const CommentCard = (props) => {
 }
 
 
-
 export default CommentCard
