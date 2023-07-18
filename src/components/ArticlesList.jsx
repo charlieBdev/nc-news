@@ -36,7 +36,7 @@ const ArticlesList = () => {
                     })}
                 </ul>
             </section>
-    )
+        )
     }
 }
 

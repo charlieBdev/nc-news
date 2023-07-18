@@ -106,3 +106,21 @@ ul {
 .liked-btn:hover {
   cursor: pointer;
 }
+
+.comment-list {
+  border: 1px solid fuchsia;
+}
+
+.comment-card {
+  border: 1px solid orange;
+}
+
+.comment-body {
+  text-align: left;
+}
+
+.comment-btns {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

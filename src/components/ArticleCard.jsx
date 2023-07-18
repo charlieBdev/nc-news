@@ -25,7 +25,7 @@ const ArticleCard = (props) => {
                 </div>
                 <p>{votes} votes</p>
                 <p>{comment_count} comments</p>
-            </article>
+        </article>
     )
 }
 
