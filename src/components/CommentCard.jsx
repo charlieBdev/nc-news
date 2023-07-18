@@ -1,13 +1,12 @@
 const CommentCard = () => {
     return (
-        <>
-            <p>Comment ID</p>
+        <div className="comment-card">
+            <p>This is a comment</p>
+            <p>Author</p>
             <p>Votes</p>
             <p>Created At</p>
-            <p>Author</p>
-            <p>Body</p>
-            <p>Article ID</p>
-        </>
+            <button>Delete</button>
+        </div>
     )
 }
 

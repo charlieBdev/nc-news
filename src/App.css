@@ -98,3 +98,11 @@ ul {
 .like-btn:hover {
   cursor: pointer;
 }
+
+.comment-list {
+  border: 1px solid fuchsia;
+}
+
+.comment-card {
+  border: 1px solid orange;
+}

@@ -19,7 +19,6 @@ const ArticleCard = (props) => {
                 <img className="article-img" src={article_img_url} alt={title} />
                 <h4><span className="by-author">By</span> {author}</h4>
                 <div className="article-info">
-                    <p>Article ID: {article_id}</p>
                     <p>Topic: {topic}</p>
                     <p>Created: {formatDate(created_at)}</p>
                 </div>
