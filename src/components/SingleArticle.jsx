@@ -6,6 +6,7 @@ import CommentsList from "./CommentsList"
 const SingleArticle = (props) => {
 
     const {
+        article_id,
         title,
         author,
         topic,
@@ -30,7 +31,7 @@ const SingleArticle = (props) => {
                 <button className="like-btn">👍</button>
                 <Link to="/">Back</Link>
             </article>
-            <CommentsList />
+            <CommentsList article_id={article_id}/>
         </>
     )
 }

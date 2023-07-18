@@ -25,7 +25,7 @@ const ArticleCard = (props) => {
                 <p>{votes} votes</p>
                 <button className="like-btn">👍</button>
                 <p>{comment_count} comments</p>
-            </article>
+        </article>
     )
 }
 
