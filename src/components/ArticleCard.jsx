@@ -1,6 +1,7 @@
 import { formatDate } from "../utils/utils"
 
 const ArticleCard = (props) => {
+    console.log(props, '<<< props')
     const {
         author,
         title,
@@ -11,14 +12,13 @@ const ArticleCard = (props) => {
         votes,
         article_img_url,
         comment_count
-    } = props
+    } = props.article
 
     return (
         <article className="article-card">
             <h3>{title}</h3>
             <h4><span className="by-author">By</span> {author}</h4>
             <p>Article ID: {article_id}</p>
-            {/* inArticle context <p>body</p> */}
             <p>Topic: {topic}</p>
             <p>Created: {formatDate(created_at)}</p>
             <p>{votes} votes</p>
