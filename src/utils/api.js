@@ -15,3 +15,11 @@ export const getArticleById = (article_id) => {
         return article
     })
 }
+
+export const patchArticleVotes = (article_id, inc) => {
+    const patchBody = { inc_votes: inc }
+    return api.patch(`/articles/${article_id}`, patchBody)
+    .then((res) => {
+
+    })
+}

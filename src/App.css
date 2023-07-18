@@ -98,3 +98,11 @@ ul {
 .like-btn:hover {
   cursor: pointer;
 }
+
+.liked-btn {
+  background-color: darkgrey;
+}
+
+.liked-btn:hover {
+  cursor: pointer;
+}
