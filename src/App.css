@@ -1,25 +1,77 @@
 #root {
   max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  /* margin: 0 auto; */
+  /* padding: 2rem; */
   text-align: center;
+  font-family: sans-serif;
 }
 
 * {
   box-sizing: border-box;
 }
 
+h1 {
+  font-size: 1.4rem;
+}
+
+h2, h3, h4, p {
+  font-size: 0.9rem;
+}
+
+.by-author {
+  font-weight: lighter;
+}
+
 header {
   border: 1px solid hotpink;
 }
 
-nav > ul {
+.navbar {
+  border: 1px solid greenyellow;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;  
+  justify-content: space-evenly;
+  align-items: center;
 }
 
-nav > ul > li {
-  list-style: none;
-  margin-left: 0;
+.sort-options {
+  border: 1px solid purple;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+.article-card {
+  padding: 1rem;
+}
+
+.article-card:hover {
+  box-shadow: 5px 5px 5px black;
+  cursor: pointer;
+}
+
+.article-list {
+  border: 1px solid grey;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+ul {
+  list-style-type: none;
+  display: contents;
+}
+
+.article-li {
+  border: 1px solid blue;
+  list-style-type: none;
+}
+
+.article-img {
+  height: 100px;
+}
+
+.like-btn:hover {
+  cursor: pointer;
 }

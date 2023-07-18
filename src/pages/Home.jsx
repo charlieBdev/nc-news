@@ -1,11 +1,13 @@
-import SortTopics from "../components/SortTopics"
+import ArticlesList from "../components/ArticlesList"
+import SortTopics from "../components/SortOptions"
 
 const Home = () => {
     return (
         <main>
-            <section>
-                <SortTopics />
-            </section>
+            <SortTopics />
+            <ArticlesList />
         </main>
     )
 }
+
+export default Home
