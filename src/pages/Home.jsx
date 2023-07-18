@@ -1,5 +1,5 @@
 import ArticlesList from "../components/ArticlesList"
-import SortTopics from "../components/SortTopics"
+import SortTopics from "../components/SortOptions"
 
 const Home = () => {
     return (

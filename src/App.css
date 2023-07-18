@@ -10,6 +10,18 @@
   box-sizing: border-box;
 }
 
+h1 {
+  font-size: 1.4rem;
+}
+
+h2, h3, h4, p {
+  font-size: 0.9rem;
+}
+
+.by-author {
+  font-weight: lighter;
+}
+
 header {
   border: 1px solid hotpink;
 }
@@ -22,8 +34,21 @@ header {
   align-items: center;
 }
 
-.sort-topics {
+.sort-options {
   border: 1px solid purple;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+.article-card {
+  padding: 1rem;
+}
+
+.article-card:hover {
+  box-shadow: 5px 5px 5px black;
+  cursor: pointer;
 }
 
 .article-list {
@@ -47,10 +72,6 @@ ul {
   height: 100px;
 }
 
-h1 {
-  font-size: 1.4rem;
-}
-
-h2, h3, p {
-  font-size: 0.9rem;
+.like-btn:hover {
+  cursor: pointer;
 }
