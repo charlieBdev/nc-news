@@ -20,7 +20,7 @@ const SingleArticle = (props) => {
             <h3>{title}</h3>
             <img className="article-img" src={article_img_url} alt={title} />
             <h4><span className="by-author">By</span> {author}</h4>
-            <p>{body}</p>
+            <p className="article-body">{body}</p>
             <div className="article-info">
                 <p>Article ID: {article_id}</p>
                 <p>Topic: {topic}</p>

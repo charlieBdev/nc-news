@@ -75,6 +75,12 @@ header {
   justify-content: center;
 }
 
+.article-body {
+  text-align: left;
+  width: 80vw;
+  font-size: large;
+}
+
 ul {
   list-style-type: none;
   display: contents;
