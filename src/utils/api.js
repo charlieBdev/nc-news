@@ -20,7 +20,8 @@ export const patchArticleVotes = (article_id, inc) => {
     const patchBody = { inc_votes: inc }
     return api.patch(`/articles/${article_id}`, patchBody)
     .then((res) => {
-
+    })
+}
 
 export const getCommentsByArticleId = (article_id) => {
     return api.get(`/articles/${article_id}/comments`)

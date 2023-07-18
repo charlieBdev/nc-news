@@ -16,15 +16,15 @@ const ArticleCard = (props) => {
 
     return (
         <article className="article-card">
-                <Link to={`/articles/${article_id}`}><h3>{title}</h3></Link>
-                <img className="article-img" src={article_img_url} alt={title} />
-                <h4><span className="by-author">By</span> {author}</h4>
-                <div className="article-info">
-                    <p>Topic: {topic}</p>
-                    <p>Created: {formatDate(created_at)}</p>
-                </div>
-                <p>{votes} votes</p>
-                <p>{comment_count} comments</p>
+            <Link to={`/articles/${article_id}`}><h3>{title}</h3></Link>
+            <img className="article-img" src={article_img_url} alt={title} />
+            <h4><span className="by-author">By</span> {author}</h4>
+            <div className="article-info">
+                <p>Topic: {topic}</p>
+                <p>Created: {formatDate(created_at)}</p>
+            </div>
+            <p>{votes} votes</p>
+            <p>{comment_count} comments</p>
         </article>
     )
 }

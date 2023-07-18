@@ -1,4 +1,3 @@
-import { useParams } from "react-router-dom"
 import CommentCard from "./CommentCard"
 import { getCommentsByArticleId } from "../utils/api"
 import { useEffect, useState } from "react"
