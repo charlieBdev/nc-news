@@ -62,13 +62,9 @@ const SingleArticle = (props) => {
             <img className="article-img" src={article_img_url} alt={title} />
             <h4><span className="by-author">By</span> {author}</h4>
             <p className="article-body">{body}</p>
-            <div className="article-info">
-                <p>Article ID: {article_id}</p>
-                <p>Topic: {topic}</p>
-                <p>Created: {formatDate(created_at)}</p>
-            </div>
+            <p>Created: {formatDate(created_at)}</p>
             <p>{votes + userVotes} votes</p>
-                <button className={!isClicked ? "like-btn" : "liked-btn"} onClick={handleLike}>👍</button>
+            <button className={!isClicked ? "like-btn" : "liked-btn"} onClick={handleLike}>💖</button>
             <Link to="/">Back</Link>
         </article>
         <section>
