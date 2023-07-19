@@ -124,3 +124,7 @@ ul {
   flex-direction: column;
   align-items: center;
 }
+
+form {
+  border: 1px solid yellow;
+}
