@@ -56,7 +56,8 @@ const SingleArticle = (props) => {
     }
 
     return (
-        <article className="single-article-card">
+        <>
+            <article className="single-article-card">
             <h3>{title}</h3>
             <img className="article-img" src={article_img_url} alt={title} />
             <h4><span className="by-author">By</span> {author}</h4>
@@ -70,6 +71,11 @@ const SingleArticle = (props) => {
                 <button className={!isClicked ? "like-btn" : "liked-btn"} onClick={handleLike}>👍</button>
             <Link to="/">Back</Link>
         </article>
+        <section>
+            <CommentsList article_id={article_id}/>
+        </section>
+        </>
+        
     )
 }
 
