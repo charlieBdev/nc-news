@@ -134,6 +134,10 @@ ul {
   border: 1px solid orange;
 }
 
+.comment-card:hover {
+  box-shadow: 5px 5px 5px black;
+}
+
 .comment-body {
   text-align: left;
   width: 80vw;
