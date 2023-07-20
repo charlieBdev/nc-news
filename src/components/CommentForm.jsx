@@ -42,7 +42,7 @@ const CommentForm = (props) => {
         <form onSubmit={handleSumbit}>
             <textarea rows="3" cols="25" type="text" placeholder="Add comment" value={newComment} onChange={(event) => setNewComment(event.target.value)}/>
             {isError ? (<p>Your message is too long!</p>) : (<p>{50 - newComment.length} chars left</p>)}
-            <button disabled={newComment.length > 50} type="submit" value="submit">Comment</button>
+            <button disabled={newComment.length > 50 || newComment.length < 1} type="submit" value="submit">Comment</button>
             {isAdded && <p>Comment added!</p>}
         </form>
     )
