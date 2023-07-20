@@ -29,3 +29,14 @@ export const getCommentsByArticleId = (article_id) => {
         return comments
     })
 }
+
+export const postComment = (article_id, username, body) => {
+    const toPost = {
+        username,
+        body    
+    }
+    return api.post(`/articles/${article_id}/comments`, toPost)
+    .then(({ data: {commentAdded} }) => {
+        return commentAdded
+    })
+}

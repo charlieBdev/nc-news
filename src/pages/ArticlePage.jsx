@@ -4,7 +4,9 @@ import { getArticleById } from "../utils/api"
 import SingleArticle from "../components/SingleArticle"
 
 
-const ArticlePage = () => {
+const ArticlePage = (props) => {
+
+    const { user } = props
 
     const { article_id } = useParams()
     const [article, setArticle] = useState([])
@@ -28,7 +30,7 @@ const ArticlePage = () => {
         return <p>Error!</p>
     } else {
         return (
-            <SingleArticle article={article}/>
+            <SingleArticle article={article} user={user}/>
         )
     }
 }

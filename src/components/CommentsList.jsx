@@ -3,10 +3,8 @@ import { getCommentsByArticleId } from "../utils/api"
 import { useEffect, useState } from "react"
 
 const CommentsList = (props) => {
-
-    const { article_id } = props
     
-    const [comments, setComments] = useState([])
+    const { article_id, comments, setComments } = props
     const [isLoading, setIsLoading] = useState(true)
 
     useEffect(() => {
@@ -14,6 +12,9 @@ const CommentsList = (props) => {
         .then((commentsFromApi) => {
             setComments(commentsFromApi)
             setIsLoading(false)
+        })
+        .catch((err) => {
+            console.log(err, '<<< err')
         })
     }, [])
 
@@ -26,7 +27,7 @@ const CommentsList = (props) => {
                     {comments.map((comment) => {
                         return (
                             <li key={comment.comment_id} className="comment-li">
-                                <CommentCard comment={comment}/>
+                                <CommentCard comment={comment} />
                             </li>
                         )
                     })}
