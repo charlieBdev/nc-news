@@ -10,12 +10,12 @@ const CommentCard = (props) => {
 
     return (
         <div className="comment-card">
-            <p>{author}</p>
-            <p className="comment-body">{body}</p>
+            <h4>{author} said...</h4>
+            <h5 className="comment-body">{body}</h5>
             <p>{formatDate(created_at)}</p>
             <p>{votes}</p>
             <div className="comment-btns">
-                <button className="like-btn">👍</button>
+                <button className="like-btn">💖</button>
                 <button>Delete</button>
             </div>
         </div>

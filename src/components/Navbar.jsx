@@ -6,7 +6,7 @@ const Navbar = (props) => {
     return (
         <nav className="navbar">
                 <Link to="/">Home</Link>
-                <p>{user}</p>
+                <p>Logged in as: {user}</p>
         </nav>
     )
 }
