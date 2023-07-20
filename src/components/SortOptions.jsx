@@ -1,26 +1,7 @@
-const SortOptions = (props) => {
-
-    // const handleChangeTopic = (event) => {
-    //     event.preventDefault()
-    //     setTopic(event.target.value)
-    // }
-
-    // useEffect(() => {
-    //     getTopics()
-    //     .then((topics) => {
-    //         setTopics(topics)
-    //     })
-    // }, [])
+const SortOptions = () => {
 
     return (
         <div className="sort-topics">
-
-            {/* <select name="topics" id="topic-select" onChange={handleChangeTopic}>
-                <option value="">Choose a topic</option>
-                {topics.map((topic) => {
-                    return <option key={topic.slug} value={topic.slug}>{topic.slug}</option>
-                })}
-            </select> */}
 
             <label htmlFor="sort-select">Sort by:</label>
             <select name="sort-select" id="sort-select">
