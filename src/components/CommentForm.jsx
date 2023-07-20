@@ -8,34 +8,42 @@ const CommentForm = (props) => {
     const { user, setComments } = props
     const [newComment, setNewComment] = useState('')
     const [isAdded, setIsAdded] = useState(false)
+    const [isError, setIsError] = useState(false)
+
     const handleSumbit = (event) => {
         event.preventDefault()
-        postComment(article_id, user, newComment)
+
+        if (newComment.length <= 50) {
+            postComment(article_id, user, newComment)
             .then(() => {
                 setIsAdded(true)
             })
             .catch(() => {
                 setIsAdded(false)
             })
-        setComments((currComments) => {
-            const date = new Date(Date.now())
-            const toAdd = {
-                article_id,
-                author: user,
-                body: newComment,
-                created_at: date,
-                votes: 0,
-            }
-            return [toAdd, ...currComments]
-        })
-        setNewComment('')
+            setComments((currComments) => {
+                const date = new Date(Date.now())
+                const toAdd = {
+                    article_id,
+                    author: user,
+                    body: newComment,
+                    created_at: date,
+                    votes: 0,
+                }
+                return [toAdd, ...currComments]
+            })
+            setNewComment('')
+        } else {
+            setIsError(true)
+        }
     }
 
     return (
         <form onSubmit={handleSumbit}>
-            <input type="textarea" placeholder="Add comment" value={newComment} onChange={(event) => setNewComment(event.target.value)}/>
-            <button type="submit" value="submit">Add Comment</button>
-            {isAdded && <p>Comment Added!</p>}
+            <textarea rows="3" cols="25" type="text" placeholder="Add comment" value={newComment} onChange={(event) => setNewComment(event.target.value)}/>
+            {isError ? (<p>Your message is too long!</p>) : (<p>{50 - newComment.length} chars left</p>)}
+            <button disabled={newComment.length > 50} type="submit" value="submit">Comment</button>
+            {isAdded && <p>Comment added!</p>}
         </form>
     )
 }
