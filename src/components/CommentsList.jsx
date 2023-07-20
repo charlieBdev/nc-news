@@ -13,9 +13,6 @@ const CommentsList = (props) => {
             setComments(commentsFromApi)
             setIsLoading(false)
         })
-        .catch((err) => {
-            console.log(err, '<<< err')
-        })
     }, [])
 
     if (isLoading) {

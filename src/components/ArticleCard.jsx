@@ -20,8 +20,10 @@ const ArticleCard = (props) => {
             <Link to={`/articles/${article_id}`}><img className="article-img" src={article_img_url} alt={title} /></Link>
             <h4><span className="by-author">By</span> {author}</h4>
             <p>Created: {formatDate(created_at)}</p>
-            <p>{votes} votes</p>
-            <p>{comment_count} comments</p>
+            <div className="vote-and-comment-info">
+                <p>{votes} votes</p>
+                <p>{comment_count} comments</p>
+            </div>
         </article>
     )
 }

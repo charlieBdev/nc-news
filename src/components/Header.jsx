@@ -1,8 +1,15 @@
-const Header = () => {
+import { Link } from "react-router-dom"
+
+
+const Header = (props) => {
+    const { user } = props
     return (
         <header>
-            <h1>NC News</h1>
-            <h2>What you reading for?</h2>
+            
+            <Link to="/"><img className="nc-logo" src="src/assets/primary-logo.jpeg"/></Link>
+            <Link to="/"><h1>NC News</h1></Link>
+            
+            <p>Hi, {user}</p>
         </header>
     )
 }

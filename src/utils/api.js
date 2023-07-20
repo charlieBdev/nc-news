@@ -30,6 +30,20 @@ export const getCommentsByArticleId = (article_id) => {
     })
 }
 
+export const getTopics = () => {
+    return api.get('/topics')
+    .then(({ data: { topics }}) => {
+        return topics
+    })
+}
+
+export const getArticlesByTopic = (topic) => {
+    return api.get(`/articles/?topic=${topic}`)
+    .then(({ data: { articles }}) => {
+        return articles
+    })
+}
+
 export const postComment = (article_id, username, body) => {
     const toPost = {
         username,
