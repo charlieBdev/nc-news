@@ -9,9 +9,8 @@ import { getTopics } from './utils/api'
 
 function App() {
 
-  const [user] = useState('grumpy19')
-  const [topic, setTopic] = useState('')
   const [topics, setTopics] = useState([])
+  const [user, setUser] = useState('tickle122')
 
   useEffect(() => {
     getTopics()
@@ -23,11 +22,11 @@ function App() {
   return (
     <>
       <Header user={user}/>
-      <Navbar topics={topics} />
+      <Navbar topics={topics}/>
       <Routes>
-        <Route path="/" element={<Home topic={topic} topics={topics} setTopics={setTopics} />}></Route>
-        <Route path="/:topic" element={<Home topic={topic} topics={topics} setTopics={setTopics} />}></Route>
-        <Route path="/articles/:article_id" element={<ArticlePage />}></Route>
+        <Route path="/" element={<Home />}></Route>
+        <Route path="/:topic" element={<Home />}></Route>
+        <Route path="/articles/:article_id" element={<ArticlePage user={user}/>}></Route>
       </Routes>
     </>
   )

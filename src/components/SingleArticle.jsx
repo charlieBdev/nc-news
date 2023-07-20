@@ -3,10 +3,13 @@ import { formatDate } from "../utils/utils"
 import { useState } from "react"
 import { patchArticleVotes } from "../utils/api"
 import CommentsList from "./CommentsList"
+import CommentForm from "./CommentForm"
 
 
 const SingleArticle = (props) => {
-
+    
+    const { user } = props
+    
     const {
         article_id,
         title,
@@ -20,6 +23,7 @@ const SingleArticle = (props) => {
 
     const [userVotes, setUserVotes] = useState(0)
     const [isClicked, setIsClicked] = useState(false)
+    const [comments, setComments] = useState([])
 
     const handleLike = (event) => {
         event.preventDefault()
@@ -68,10 +72,12 @@ const SingleArticle = (props) => {
             <Link to="/">Back</Link>
         </article>
         <section>
-            <CommentsList article_id={article_id}/>
+            <CommentForm user={user} setComments={setComments}/>
+        </section>
+        <section>
+            <CommentsList article_id={article_id} comments={comments} setComments={setComments}/>
         </section>
         </>
-        
     )
 }
 

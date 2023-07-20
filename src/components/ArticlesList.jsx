@@ -1,20 +1,17 @@
 import { useEffect, useState } from "react"
 import ArticleCard from "./ArticleCard"
 import { getArticles, getArticlesByTopic } from "../utils/api"
-import SortOptions from "./SortOptions"
 import { useParams } from "react-router-dom"
 
-const ArticlesList = (props) => {
+const ArticlesList = () => {
 
     const { topic } = useParams()
-    console.log(topic, '<<< topic')
-    
     const [articles, setArticles] = useState([])
     const [isLoading, setIsLoading] = useState(true)
     const [isError, setIsError] = useState(false)
 
     useEffect(() => {
-        if (topic === "") {
+        if (topic === undefined) {
             getArticles()
             .then((articles) => {
                 setArticles(articles)
