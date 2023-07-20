@@ -14,7 +14,6 @@ const SingleArticle = (props) => {
         article_id,
         title,
         author,
-        topic,
         body,
         created_at,
         votes,

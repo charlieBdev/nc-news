@@ -2,9 +2,16 @@ import axios from "axios";
 
 const api = axios.create({ baseURL: "https://nc-news-qvv1.onrender.com/api" })
 
-export const getArticles = () => {
-    return api.get('/articles')
+export const getArticles = (sortByQuery='created_at', orderByQuery='desc') => {
+    return api.get(`/articles?sort_by=${sortByQuery}&order=${orderByQuery}`)
     .then(({ data: {articles} }) => {
+        return articles
+    })
+}
+
+export const getArticlesByTopic = (topic, sortByQuery='created_at', orderByQuery='desc') => {
+    return api.get(`/articles?topic=${topic}&sort_by=${sortByQuery}&order=${orderByQuery}`)
+    .then(({ data: { articles }}) => {
         return articles
     })
 }
@@ -37,12 +44,6 @@ export const getTopics = () => {
     })
 }
 
-export const getArticlesByTopic = (topic) => {
-    return api.get(`/articles/?topic=${topic}`)
-    .then(({ data: { articles }}) => {
-        return articles
-    })
-}
 
 export const postComment = (article_id, username, body) => {
     const toPost = {

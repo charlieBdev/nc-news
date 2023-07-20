@@ -7,7 +7,6 @@ const ArticleCard = (props) => {
         author,
         title,
         article_id,
-        topic,
         created_at,
         votes,
         article_img_url,

@@ -60,16 +60,12 @@ a:hover {
   cursor: pointer;
 }
 
-a:active {
-  background-color: grey;
-}
-
 .sort-options {
   border: 1px solid purple;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .article-card {
