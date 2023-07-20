@@ -36,7 +36,7 @@ export const postComment = (article_id, username, body) => {
         body    
     }
     return api.post(`/articles/${article_id}/comments`, toPost)
-    .then(({ data: {comment} }) => {
-        return comment
+    .then(({ data: {commentAdded} }) => {
+        return commentAdded
     })
 }

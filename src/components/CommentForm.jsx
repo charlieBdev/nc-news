@@ -7,43 +7,31 @@ const CommentForm = (props) => {
     const { article_id } = useParams()
     const { user, setComments } = props
     const [newComment, setNewComment] = useState('')
-    const [isAdded, setIsAdded] = useState(false)
-    const [isError, setIsError] = useState(false)
+    const [apiError, setApiError] = useState(false)
 
     const handleSumbit = (event) => {
         event.preventDefault()
-
         if (newComment.length <= 50) {
             postComment(article_id, user, newComment)
-            .then(() => {
-                setIsAdded(true)
-            })
-            .catch(() => {
-                setIsAdded(false)
-            })
-            setComments((currComments) => {
-                const date = new Date(Date.now())
-                const toAdd = {
-                    article_id,
-                    author: user,
-                    body: newComment,
-                    created_at: date,
-                    votes: 0,
-                }
-                return [toAdd, ...currComments]
+            .then((res) => {
+                setComments((currComments) => {
+                    return [res, ...currComments]
             })
             setNewComment('')
-        } else {
-            setIsError(true)
+            setApiError(false)
+            })
+            .catch(() => {
+                setApiError(true)
+            })
         }
     }
 
     return (
         <form onSubmit={handleSumbit}>
             <textarea rows="3" cols="25" type="text" placeholder="Add comment" value={newComment} onChange={(event) => setNewComment(event.target.value)}/>
-            {isError ? (<p>Your message is too long!</p>) : (<p>{50 - newComment.length} chars left</p>)}
+            <p>{50 - newComment.length} chars left</p>
             <button disabled={newComment.length > 50 || newComment.length < 1} type="submit" value="submit">Comment</button>
-            {isAdded && <p>Comment added!</p>}
+            {apiError && <p>Sorry, that did not work. Please try again.</p>}
         </form>
     )
 }

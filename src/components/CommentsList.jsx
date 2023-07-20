@@ -13,6 +13,9 @@ const CommentsList = (props) => {
             setComments(commentsFromApi)
             setIsLoading(false)
         })
+        .catch((err) => {
+            console.log(err, '<<< err')
+        })
     }, [])
 
     if (isLoading) {
@@ -24,7 +27,7 @@ const CommentsList = (props) => {
                     {comments.map((comment) => {
                         return (
                             <li key={comment.comment_id} className="comment-li">
-                                <CommentCard comment={comment}/>
+                                <CommentCard comment={comment} />
                             </li>
                         )
                     })}
