@@ -10,6 +10,10 @@
   box-sizing: border-box;
 }
 
+.nc-logo {
+  height:60px;
+}
+
 h1 {
   font-size: 1.4rem;
 }
@@ -33,6 +37,13 @@ a {
 
 header {
   border: 1px solid hotpink;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+header > p {
+  margin-left: auto;
 }
 
 .navbar {
@@ -41,6 +52,10 @@ header {
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
+}
+
+a:hover {
+  cursor: pointer;
 }
 
 .sort-options {
@@ -58,8 +73,8 @@ header {
   align-items: center;
   width: 300px;
   height: 360px;
-  border: 1px solid black;
-  border-radius: 10px;
+  border: 1px solid grey;
+  border-radius: 5px;
   margin: 0.3rem;
 }
 
@@ -71,7 +86,7 @@ header {
 }
 
 .article-card:hover {
-  box-shadow: 5px 5px 5px black;
+  box-shadow: 5px 5px 5px grey;
 }
 
 .vote-and-comment-info {

@@ -1,32 +1,26 @@
-import { useEffect, useState } from "react"
-import { getTopics } from "../utils/api"
-
 const SortOptions = (props) => {
 
-    const { topic, setTopic } = props
-    const [topics, setTopics] = useState([])
+    // const handleChangeTopic = (event) => {
+    //     event.preventDefault()
+    //     setTopic(event.target.value)
+    // }
 
-    const handleChangeTopic = (event) => {
-        event.preventDefault()
-        setTopic(event.target.value)
-    }
-
-    useEffect(() => {
-        getTopics()
-        .then((topics) => {
-            setTopics(topics)
-        })
-    }, [])
+    // useEffect(() => {
+    //     getTopics()
+    //     .then((topics) => {
+    //         setTopics(topics)
+    //     })
+    // }, [])
 
     return (
         <div className="sort-topics">
 
-            <select name="topics" id="topic-select" onChange={handleChangeTopic}>
+            {/* <select name="topics" id="topic-select" onChange={handleChangeTopic}>
                 <option value="">Choose a topic</option>
                 {topics.map((topic) => {
                     return <option key={topic.slug} value={topic.slug}>{topic.slug}</option>
                 })}
-            </select>
+            </select> */}
 
             <label htmlFor="sort-select">Sort by:</label>
             <select name="sort-select" id="sort-select">
@@ -39,10 +33,10 @@ const SortOptions = (props) => {
             <label htmlFor="order"></label>
 
             <input type="radio" id="desc" name="order" value="desc" checked></input>
-            <label htmlFor="desc">Descending</label>
+            <label htmlFor="desc">Desc</label>
 
             <input type="radio" id="asc" name="order" value="asc"></input>
-            <label htmlFor="asc">Ascending</label>
+            <label htmlFor="asc">Asc</label>
             
         </div>
     )

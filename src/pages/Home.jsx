@@ -5,10 +5,10 @@ import SortTopics from "../components/SortOptions"
 const Home = () => {
 
     const [topic, setTopic] = useState('')
-
+    
     return (
         <main>
-            <SortTopics topic={topic} setTopic={setTopic}/>
+            <SortTopics />
             <ArticlesList topic={topic}/>
         </main>
     )
