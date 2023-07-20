@@ -2,10 +2,12 @@ import { useEffect, useState } from "react"
 import ArticleCard from "./ArticleCard"
 import { getArticles, getArticlesByTopic } from "../utils/api"
 import SortOptions from "./SortOptions"
+import { useParams } from "react-router-dom"
 
 const ArticlesList = (props) => {
 
-    const { topic } = props
+    const { topic } = useParams()
+    console.log(topic, '<<< topic')
     
     const [articles, setArticles] = useState([])
     const [isLoading, setIsLoading] = useState(true)
