@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom"
+import { Link } from "react-router-dom"
 import { formatDate } from "../utils/utils"
 import { useState } from "react"
 import { patchArticleVotes } from "../utils/api"
@@ -8,8 +8,6 @@ import CommentForm from "./CommentForm"
 
 const SingleArticle = (props) => {
     
-    const navigate = useNavigate()
-
     const { user } = props
     
     const {
