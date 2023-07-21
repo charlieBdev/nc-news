@@ -15,7 +15,7 @@ const SortOptions = () => {
         newParams.set('order', order)
         setSearchParams(newParams)
     }
-    
+
     return (
         <div className="sort-options">
 
@@ -24,7 +24,7 @@ const SortOptions = () => {
                 <option value="created_at">Date</option>
                 <option value="comment_count">Comment Count</option>
                 <option value="votes">Votes</option>
-            </select>
+            </select> 
 
             <label htmlFor="order-select">Order:</label>
             <select name="order-select" id="order-select" onChange={(e) => setOrder(e.target.value)}>

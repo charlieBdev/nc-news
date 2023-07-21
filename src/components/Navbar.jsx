@@ -3,7 +3,7 @@ import { getTopics } from "../utils/api"
 import { useEffect, useState } from "react"
 
 
-const Navbar = (props) => {
+const Navbar = () => {
     
     const [topics, setTopics] = useState([])
 
@@ -20,7 +20,7 @@ const Navbar = (props) => {
         .then((topics) => {
             setTopics(topics)
         })
-    }, [])
+    }, [searchParams])
     return (
         <>
             <nav className="navbar">

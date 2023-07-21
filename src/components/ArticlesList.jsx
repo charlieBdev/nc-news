@@ -15,19 +15,6 @@ const ArticlesList = () => {
     const [isLoading, setIsLoading] = useState(true)
     const [isError, setIsError] = useState(false)
 
-    
-
-    // const setSortBy = (sort_by) => {
-    //     const newParams = new URLSearchParams(searchParams)
-    //     newParams.set('sort_by', sort_by)
-    //     setSearchParams(newParams)
-    // }
-
-    // const setOrder = (order) => {
-    //     const newParams = new URLSearchParams(searchParams)
-    //     newParams.set('order', order)
-    //     setSearchParams(newParams)
-    // }
 
     useEffect(() => {
         getArticles(topicQuery, sortByQuery, orderQuery)
@@ -47,7 +34,6 @@ const ArticlesList = () => {
     } else {
         return (
             <>
-                {/* <Navbar setTopic={setTopic}/> */}
                 <SortOptions />
                 <section className="article-list">
                     <ul>
