@@ -1,6 +1,18 @@
 const SortOptions = (props) => {
     
-    const { setOrder, setSortBy } = props
+    // const { setOrder, setSortBy } = props
+
+    const setSortBy = (sort_by) => {
+        const newParams = new URLSearchParams(searchParams)
+        newParams.set('sort_by', sort_by)
+        setSearchParams(newParams)
+    }
+
+    const setOrder = (order) => {
+        const newParams = new URLSearchParams(searchParams)
+        newParams.set('order', order)
+        setSearchParams(newParams)
+    }
     
     return (
         <div className="sort-options">

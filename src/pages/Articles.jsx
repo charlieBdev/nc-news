@@ -1,6 +1,6 @@
 import ArticlesList from "../components/ArticlesList"
 
-const Home = () => {
+const Articles = () => {
     
     return (
         <main>
@@ -9,4 +9,4 @@ const Home = () => {
     )
 }
 
-export default Home
+export default Articles

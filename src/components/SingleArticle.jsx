@@ -61,21 +61,23 @@ const SingleArticle = (props) => {
     return (
         <>
             <article className="single-article-card">
-            <h3>{title}</h3>
-            <img className="article-img" src={article_img_url} alt={title} />
-            <h4><span className="by-author">By</span> {author}</h4>
-            <p className="article-body">{body}</p>
-            <p>Created: {formatDate(created_at)}</p>
-            <p>{votes + userVotes} votes</p>
-            <button className={!isClicked ? "like-btn" : "liked-btn"} onClick={handleLike}>💖</button>
-            <Link to='/articles'>Back</Link>
-        </article>
-        <section>
-            <CommentForm user={user} setComments={setComments}/>
-        </section>
-        <section>
-            <CommentsList article_id={article_id} comments={comments} setComments={setComments}/>
-        </section>
+                <Link to='/articles'>Back</Link>
+                <h3>{title}</h3>
+                <img className="article-img" src={article_img_url} alt={title} />
+                <h4><span className="by-author">By</span> {author}</h4>
+                <p className="article-body">{body}</p>
+                <p>Created: {formatDate(created_at)}</p>
+                <p>{votes + userVotes} votes</p>
+                <button className={!isClicked ? "like-btn" : "liked-btn"} onClick={handleLike}>💖</button>
+            </article>
+
+            <section>
+                <CommentForm user={user} setComments={setComments}/>
+            </section>
+            
+            <section>
+                <CommentsList article_id={article_id} comments={comments} setComments={setComments}/>
+            </section>
         </>
     )
 }

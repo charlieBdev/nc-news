@@ -16,23 +16,19 @@ const ArticlesList = () => {
     const [isLoading, setIsLoading] = useState(true)
     const [isError, setIsError] = useState(false)
 
-    const setTopic = (topic) => {
-        const newParams = new URLSearchParams(searchParams)
-        newParams.set('topic', topic)
-        setSearchParams(newParams)
-    }
+    
 
-    const setSortBy = (sort_by) => {
-        const newParams = new URLSearchParams(searchParams)
-        newParams.set('sort_by', sort_by)
-        setSearchParams(newParams)
-    }
+    // const setSortBy = (sort_by) => {
+    //     const newParams = new URLSearchParams(searchParams)
+    //     newParams.set('sort_by', sort_by)
+    //     setSearchParams(newParams)
+    // }
 
-    const setOrder = (order) => {
-        const newParams = new URLSearchParams(searchParams)
-        newParams.set('order', order)
-        setSearchParams(newParams)
-    }
+    // const setOrder = (order) => {
+    //     const newParams = new URLSearchParams(searchParams)
+    //     newParams.set('order', order)
+    //     setSearchParams(newParams)
+    // }
 
     useEffect(() => {
         getArticles(topicQuery, sortByQuery, orderQuery)
@@ -52,8 +48,8 @@ const ArticlesList = () => {
     } else {
         return (
             <>
-                <Navbar setTopic={setTopic}/>
-                <SortOptions setOrder={setOrder} setSortBy={setSortBy}/>
+                {/* <Navbar setTopic={setTopic}/> */}
+                <SortOptions />
                 <section className="article-list">
                     <ul>
                         {articles.map((article) => {
