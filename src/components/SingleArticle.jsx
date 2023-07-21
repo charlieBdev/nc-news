@@ -70,7 +70,7 @@ const SingleArticle = (props) => {
                 <p className="article-body">{body}</p>
                 <p>Created: {formatDate(created_at)}</p>
                 <p>{votes + userVotes} votes</p>
-                <button className={!isClicked ? "like-btn" : "liked-btn"} onClick={handleLike}>💖</button>
+                <button className={!isClicked ? "like-btn" : "liked-btn"} onClick={handleLike}>❤️</button>
             </article>
 
             <section>
