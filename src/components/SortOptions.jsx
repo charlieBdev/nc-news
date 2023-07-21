@@ -1,7 +1,9 @@
-const SortOptions = (props) => {
-    
-    // const { setOrder, setSortBy } = props
+import { useSearchParams } from "react-router-dom"
 
+const SortOptions = () => {
+
+    const [searchParams, setSearchParams] = useSearchParams()
+    
     const setSortBy = (sort_by) => {
         const newParams = new URLSearchParams(searchParams)
         newParams.set('sort_by', sort_by)

@@ -3,7 +3,6 @@ import { useSearchParams } from "react-router-dom"
 import { getArticles } from "../utils/api"
 import ArticleCard from "./ArticleCard"
 import SortOptions from "./SortOptions"
-import Navbar from "./Navbar"
 
 const ArticlesList = () => {
 

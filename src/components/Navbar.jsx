@@ -1,10 +1,13 @@
-import { Link } from "react-router-dom"
+import { Link, useSearchParams } from "react-router-dom"
 import { getTopics } from "../utils/api"
 import { useEffect, useState } from "react"
 
+
 const Navbar = (props) => {
-    // const { setTopic } = props
+    
     const [topics, setTopics] = useState([])
+
+    const [searchParams, setSearchParams] = useSearchParams()
 
     const setTopic = (topic) => {
         const newParams = new URLSearchParams(searchParams)
