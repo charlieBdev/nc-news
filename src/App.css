@@ -43,8 +43,36 @@ a {
   cursor: pointer;
 }
 
+.comment-btn {
+  background-color: white;
+  border: 1px solid grey;
+  border-radius: 5px;
+  padding: 0.4rem 0.6rem;
+}
+
+.comment-btn:hover {
+  cursor: pointer;
+}
+
+.delete-comment-btn {
+  background-color: white;
+  border: 1px solid black;
+  color: black;
+  border-radius: 5px;
+  padding: 0.4rem 0.6rem;
+}
+
+.delete-comment-btn:hover {
+  cursor: pointer;
+}
+
 .by-author {
   font-weight: lighter;
+}
+
+textarea {
+  font-family: sans-serif;
+  width: 65vw;
 }
 
 header {
