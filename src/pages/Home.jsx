@@ -1,20 +1,9 @@
-import { useState } from "react"
-import ArticlesList from "../components/ArticlesList"
-import SortTopics from "../components/SortOptions"
-
-const Home = (props) => {
-
-    const { topics } = props
-    console.log(topics, '<<< topics')
-    const [topic, setTopic] = useState('')
-    console.log()
-    
+const Home = () => {
     return (
-        <main>
-            <SortTopics />
-            <p>{topic}</p>
-            <ArticlesList />
-        </main>
+        <section>
+            <h2>Welcome to NC News</h2>
+            <h3>Choose a topic</h3>
+        </section>
     )
 }
 
