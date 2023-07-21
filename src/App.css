@@ -29,6 +29,18 @@ p {
 
 a {
   color: black;
+  text-decoration: none;
+}
+
+.back-btn {
+  background-color: white;
+  border: 1px solid grey;
+  border-radius: 5px;
+  padding: 0.4rem 0.6rem;
+}
+
+.back-btn:hover {
+  cursor: pointer;
 }
 
 .by-author {
