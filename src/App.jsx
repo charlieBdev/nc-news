@@ -13,7 +13,6 @@ function App() {
   return (
     <>
       <Header user={user}/>
-      {/* <Navbar /> */}
       <Routes>
         <Route path="/articles" element={<Home />}></Route>
         <Route path="/articles?topic=:topic" element={<Home />}></Route>

@@ -12,7 +12,6 @@ const Navbar = (props) => {
             setTopics(topics)
         })
     }, [])
-
     return (
         <>
             <nav className="navbar">
