@@ -25,7 +25,6 @@ const CommentCard = (props) => {
     const handleDelete = (e) => {
         e.preventDefault()
         setIsDeleting(true)
-        console.log(e, '<<< e.target')
         const promises = [deleteComment(comment_id), getCommentsByArticleId(article_id)]
         return Promise.all(promises).then((res) => {
             setComments(res[1])

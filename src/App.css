@@ -76,7 +76,6 @@ textarea {
 }
 
 header {
-  border: 1px solid hotpink;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -88,7 +87,9 @@ header > p {
 }
 
 .navbar {
-  border: 1px solid greenyellow;
+  border: 1px solid lightgray;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -101,11 +102,13 @@ a:hover {
 }
 
 .sort-options {
-  border: 1px solid purple;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: center;
+  border-left: 1px solid lightgrey;
+  border-right: 1px solid lightgrey;
+  padding: 0.3rem;
 }
 
 .article-card {
