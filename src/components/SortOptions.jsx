@@ -1,7 +1,7 @@
 const SortOptions = (props) => {
-
-    const { setSortOrder, setSortBy } = props
-
+    
+    const { setOrder, setSortBy } = props
+    
     return (
         <div className="sort-options">
 
@@ -13,7 +13,7 @@ const SortOptions = (props) => {
             </select>
 
             <label htmlFor="order-select">Order:</label>
-            <select name="order-select" id="order-select" onChange={(e) => setSortOrder(e.target.value)}>
+            <select name="order-select" id="order-select" onChange={(e) => setOrder(e.target.value)}>
                 <option value="desc">Desc</option>
                 <option value="asc">Asc</option>
             </select>

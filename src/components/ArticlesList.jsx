@@ -1,57 +1,79 @@
 import { useEffect, useState } from "react"
 import { useParams, useSearchParams } from "react-router-dom"
-import { getArticles, getArticlesByTopic } from "../utils/api"
+import { getArticles } from "../utils/api"
 import ArticleCard from "./ArticleCard"
 import SortOptions from "./SortOptions"
+import Navbar from "./Navbar"
 
 const ArticlesList = () => {
 
-    const { topic } = useParams()
-    const [searchParams, setSearchParams] = useSearchParams({ sort_by: 'created_at', order: 'desc'})
+    // const { topic } = useParams()
+    // console.log(topic, '<<< topic')
+    const [searchParams, setSearchParams] = useSearchParams()
+    const topicQuery = searchParams.get("topic")
     const sortByQuery = searchParams.get("sort_by")
-    const orderByQuery = searchParams.get("order")
+    const orderQuery = searchParams.get("order")
 
     const [articles, setArticles] = useState([])
     const [isLoading, setIsLoading] = useState(true)
     const [isError, setIsError] = useState(false)
 
-    const setSortOrder = (direction) => {
+    const setTopic = (topic) => {
         const newParams = new URLSearchParams(searchParams)
-        newParams.set('order', direction)
-        setSearchParams({ order: 'desc' })
-    }
-
-    const setSortBy = (value) => {
-        const newParams = new URLSearchParams(searchParams)
-        newParams.set('sort_by', value)
+        newParams.set('topic', topic)
         setSearchParams(newParams)
     }
 
-    // console.log(searchParams, '<<< searchParams')
-    // console.log(sortByQuery, '<<< sortByQuery')
-    // console.log(orderByQuery, '<<< orderByQuery')
+    const setSortBy = (sort_by) => {
+        const newParams = new URLSearchParams(searchParams)
+        newParams.set('sort_by', sort_by)
+        setSearchParams(newParams)
+    }
+
+    const setOrder = (order) => {
+        const newParams = new URLSearchParams(searchParams)
+        newParams.set('order', order)
+        setSearchParams(newParams)
+    }
 
     useEffect(() => {
-        if (topic === undefined) {
-            getArticles(sortByQuery, orderByQuery)
-            .then((articles) => {
-                setArticles(articles)
-                setIsLoading(false)
-            })
-            .catch(() => {
-                setIsError(true)
-            })
-        } else {
-            getArticlesByTopic(topic, sortByQuery, orderByQuery)
-            .then((filteredArticles) => {
-                setArticles(filteredArticles)
-                setIsLoading(false)
-            })
-            .catch(() => {
-                setIsError(true)
-            })
-        }
-    }, [topic, sortByQuery, orderByQuery])
+        getArticles(topicQuery, sortByQuery, orderQuery)
+        .then((articles) => {
+            setArticles(articles)
+            setIsLoading(false)
+        })
+        .catch((err) => {
+            setIsError(true)
+        })
+        // if (!topicQuery) {
+        //     getArticles()
+        //     .then((articles) => {
+        //         setArticles(articles)
+        //         setIsLoading(false)
+        //     })
+        //     .catch(() => {
+        //         setIsError(true)
+        //     })
+        // } else if (topicQuery) {
+        //     getArticlesByTopic(topicQuery)
+        //     .then((articles) => {
+        //         setArticles(articles)
+        //         setIsLoading(false)
+        //     })
+        //     .catch(() => {
+        //         setIsError(true)
+        //     })
+        // } else {
+        //     getArticlesByTopic(topicQuery, sortByQuery, orderQuery)
+        //     .then((filteredArticles) => {
+        //         setArticles(filteredArticles)
+        //         setIsLoading(false)
+        //     })
+        //     .catch(() => {
+        //         setIsError(true)
+        //     })
+        // }
+    }, [topicQuery, sortByQuery, orderQuery])
 
     if (isLoading) {
         return <p>Loading...</p>
@@ -60,7 +82,8 @@ const ArticlesList = () => {
     } else {
         return (
             <>
-                <SortOptions setSortOrder={setSortOrder} setSortBy={setSortBy}/>
+                <Navbar setTopic={setTopic}/>
+                <SortOptions setOrder={setOrder} setSortBy={setSortBy}/>
                 <section className="article-list">
                     <ul>
                         {articles.map((article) => {

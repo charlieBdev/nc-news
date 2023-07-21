@@ -4,28 +4,19 @@ import Header from './components/Header'
 import Navbar from './components/Navbar'
 import Home from './pages/Home'
 import ArticlePage from './pages/ArticlePage'
-import { useEffect, useState } from 'react'
-import { getTopics } from './utils/api'
+import { useState } from 'react'
 
 function App() {
 
-  const [topics, setTopics] = useState([])
   const [user, setUser] = useState('tickle122')
 
-  useEffect(() => {
-    getTopics()
-    .then((topics) => {
-        setTopics(topics)
-    })
-  }, [])
-  
   return (
     <>
       <Header user={user}/>
-      <Navbar topics={topics}/>
+      {/* <Navbar /> */}
       <Routes>
-        <Route path="/" element={<Home />}></Route>
-        <Route path="/:topic" element={<Home />}></Route>
+        <Route path="/articles" element={<Home />}></Route>
+        <Route path="/articles?topic=:topic" element={<Home />}></Route>
         <Route path="/articles/:article_id" element={<ArticlePage user={user}/>}></Route>
       </Routes>
     </>

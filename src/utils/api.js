@@ -2,19 +2,26 @@ import axios from "axios";
 
 const api = axios.create({ baseURL: "https://nc-news-qvv1.onrender.com/api" })
 
-export const getArticles = (sortByQuery='created_at', orderByQuery='desc') => {
-    return api.get(`/articles?sort_by=${sortByQuery}&order=${orderByQuery}`)
-    .then(({ data: {articles} }) => {
-        return articles
-    })
-}
+// export const getArticles = () => {
+//     return api.get(`/articles`)
+//     .then(({ data: {articles} }) => {
+//         return articles
+//     })
+// }
 
-export const getArticlesByTopic = (topic, sortByQuery='created_at', orderByQuery='desc') => {
-    return api.get(`/articles?topic=${topic}&sort_by=${sortByQuery}&order=${orderByQuery}`)
+export const getArticles = (topic, sort_by, order) => {
+    return api.get(`/articles`, { params: { topic, sort_by, order } })
     .then(({ data: { articles }}) => {
         return articles
     })
 }
+
+// export const getArticlesByTopic = (topic) => {
+//     return api.get(`/articles?topic=${topic}`)
+//     .then(({ data: { articles }}) => {
+//         return articles
+//     })
+// }
 
 export const getArticleById = (article_id) => {
     return api.get(`/articles/${article_id}`)
