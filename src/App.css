@@ -111,14 +111,15 @@ a:hover {
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: flex-end;
+  align-items: center;
   border-left: 1px solid lightgrey;
   border-right: 1px solid lightgrey;
   padding: 0.5rem 1rem;
+  gap: 0.3rem;
 }
 
 label {
   font-size: 0.9rem;
-  margin-right: 0.2rem;
 }
 
 .sort-select, .order-select {
@@ -130,7 +131,7 @@ label {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 300px;
+  width: 305px;
   height: 360px;
   border: 1px solid grey;
   border-radius: 5px;
