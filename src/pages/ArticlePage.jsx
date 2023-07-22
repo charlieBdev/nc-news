@@ -25,7 +25,7 @@ const ArticlePage = (props) => {
     }, [article_id])
 
     if (isLoading) {
-        return <p>...loading...</p>
+        return <p>...loading article {article_id}...</p>
     } else if (isError) {
         return <p>Error!</p>
     } else {

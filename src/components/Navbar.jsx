@@ -7,11 +7,13 @@ const Navbar = () => {
     
     const [topics, setTopics] = useState([])
     const [isError, setIsError] = useState(false)
+    const [isLoading, setIsLoading] = useState(true)
 
     useEffect(() => {
         getTopics()
         .then((topics) => {
             setTopics(topics)
+            setIsLoading(false)
         })
         .catch((err) => {
             setIsError(true)
@@ -25,6 +27,7 @@ const Navbar = () => {
             <>
                 <nav className="navbar">
                     <Link to="/articles">all</Link>
+                    {isLoading && <Link>...loading topics...</Link>}
                     {topics.map((topic) => {
                         // onClick={(e) => setTopic(e.target.value)}
                         return <Link to={`/articles/${topic.slug}`} key={topic.slug}>{topic.slug}</Link>

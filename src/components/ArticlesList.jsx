@@ -28,7 +28,7 @@ const ArticlesList = () => {
     }, [topic, sortByQuery, orderQuery])
 
     if (isLoading) {
-        return <p>Loading...</p>
+        return <p>...loading articles...</p>
     } else if (isError) {
         return <p>Error!</p>
     } else {
