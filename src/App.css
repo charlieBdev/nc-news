@@ -265,4 +265,5 @@ ul {
 form {
   border: 1px solid lightgray;
   border-top: none;
+  border-bottom: none;
 }
