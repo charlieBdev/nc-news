@@ -8,6 +8,7 @@ const CommentsList = (props) => {
     const [isLoading, setIsLoading] = useState(true)
     const [isDeleting, setIsDeleting] = useState(false)
     const [isDeleted, setIsDeleted] = useState(true)
+    const [isError, setIsError] = useState(false)
 
     useEffect(() => {
         getCommentsByArticleId(article_id)
@@ -15,10 +16,15 @@ const CommentsList = (props) => {
             setComments(commentsFromApi)
             setIsLoading(false)
         })
+        .catch((err) => {
+            setIsError(true)
+        })
     }, [comments])
 
     if (isLoading) {
         return <p>...loading...</p>
+    } else if (isError) {
+        return <p>Error!</p>
     } else {
         return (
             <section className="comment-list">
