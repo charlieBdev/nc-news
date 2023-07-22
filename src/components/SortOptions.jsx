@@ -1,9 +1,11 @@
+import { useState } from "react"
 import { useSearchParams } from "react-router-dom"
 
 const SortOptions = () => {
 
+    const [sortOrder, setSortOrder] = useState('desc')
     const [searchParams, setSearchParams] = useSearchParams()
-    
+
     const setSortBy = (sort_by) => {
         const newParams = new URLSearchParams(searchParams)
         newParams.set('sort_by', sort_by)
@@ -16,6 +18,14 @@ const SortOptions = () => {
         setSearchParams(newParams)
     }
 
+    const handleClick = (event) => {
+        event.preventDefault()
+        console.log(sortOrder, '<<< sortOrder')
+        setSortOrder(sortOrder === 'desc' ? 'asc' : 'desc')
+        console.log(sortOrder, '<<< sortOrder')
+        setOrder(sortOrder)
+    }
+
     return (
         <div className="sort-options">
 
@@ -26,11 +36,7 @@ const SortOptions = () => {
                 <option value="votes">Votes</option>
             </select> 
 
-            <label htmlFor="order-select">Order:</label>
-            <select name="order-select" id="order-select" onChange={(e) => setOrder(e.target.value)}>
-                <option value="desc">Desc</option>
-                <option value="asc">Asc</option>
-            </select>
+            <button className="order-btn" value={sortOrder} onClick={handleClick}>{sortOrder}</button>
             
         </div>
     )

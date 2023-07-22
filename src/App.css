@@ -126,6 +126,20 @@ label {
   font-size: 0.9rem;
 }
 
+.order-btn {
+  font-family: sans-serif;
+  background-color: white;
+  border: 1px solid lightgrey;
+  color: grey;
+  border-radius: 5px;
+  width: 50px;
+}
+
+.order-btn:hover {
+  border: 1px solid grey;
+  cursor: pointer;
+}
+
 .article-card {
   padding: 1rem;
   display: flex;
