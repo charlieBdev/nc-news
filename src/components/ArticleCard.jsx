@@ -15,8 +15,8 @@ const ArticleCard = (props) => {
 
     return (
         <article className="article-card">
-            <Link to={`/articles/${article_id}`}><h3>{title}</h3></Link>
-            <Link to={`/articles/${article_id}`}><img className="article-img" src={article_img_url} alt={title} /></Link>
+            <Link to={`/article/${article_id}`}><h3>{title}</h3></Link>
+            <Link to={`/article/${article_id}`}><img className="article-img" src={article_img_url} alt={title} /></Link>
             <h4><span className="by-author">By</span> {author}</h4>
             <p>Created: {formatDate(created_at)}</p>
             <div className="vote-and-comment-info">

@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react"
-import { useSearchParams } from "react-router-dom"
+import { useParams, useSearchParams } from "react-router-dom"
 import { getArticles } from "../utils/api"
 import ArticleCard from "./ArticleCard"
 import SortOptions from "./SortOptions"
 
 const ArticlesList = () => {
 
+    const { topic } = useParams()
+
     const [searchParams, setSearchParams] = useSearchParams()
-    const topicQuery = searchParams.get("topic")
     const sortByQuery = searchParams.get("sort_by")
     const orderQuery = searchParams.get("order")
 
@@ -15,9 +16,8 @@ const ArticlesList = () => {
     const [isLoading, setIsLoading] = useState(true)
     const [isError, setIsError] = useState(false)
 
-
     useEffect(() => {
-        getArticles(topicQuery, sortByQuery, orderQuery)
+        getArticles(topic, sortByQuery, orderQuery)
         .then((articles) => {
             setArticles(articles)
             setIsLoading(false)
@@ -25,7 +25,7 @@ const ArticlesList = () => {
         .catch((err) => {
             setIsError(true)
         })
-    }, [topicQuery, sortByQuery, orderQuery])
+    }, [topic, sortByQuery, orderQuery])
 
     if (isLoading) {
         return <p>Loading...</p>
