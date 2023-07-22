@@ -1,5 +1,5 @@
 #root {
-  max-width: 1280px;
+  /* max-width: 1280px; */
   /* margin: 0 auto; */
   /* padding: 2rem; */
   text-align: center;
@@ -34,12 +34,45 @@ a {
 
 .back-btn {
   background-color: white;
-  border: 1px solid grey;
+  border: 1px solid lightgrey;
+  color: grey;
   border-radius: 5px;
   padding: 0.4rem 0.6rem;
 }
 
 .back-btn:hover {
+  background-color: white;
+  border: 1px solid grey;
+  cursor: pointer;
+}
+
+.comment-btn {
+  background-color: white;
+  border: 1px solid lightgrey;
+  color: grey;
+  border-radius: 5px;
+  padding: 0.4rem 0.6rem;
+  margin-bottom: 0.4rem;
+}
+
+.comment-btn:hover {
+  background-color: white;
+  border: 1px solid grey;
+  cursor: pointer;
+}
+
+.delete-comment-btn {
+  background-color: white;
+  border: 1px solid lightgrey;
+  color: grey;
+  border-radius: 5px;
+  padding: 0.4rem 0.6rem;
+  margin-bottom: 0.4rem;
+}
+
+.delete-comment-btn:hover {
+  background-color: white;
+  border: 1px solid grey;
   cursor: pointer;
 }
 
@@ -48,7 +81,6 @@ a {
 }
 
 header {
-  border: 1px solid hotpink;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -60,7 +92,9 @@ header > p {
 }
 
 .navbar {
-  border: 1px solid greenyellow;
+  border: 1px solid lightgray;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -73,11 +107,22 @@ a:hover {
 }
 
 .sort-options {
-  border: 1px solid purple;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  justify-content: center;
+  justify-content: flex-end;
+  border-left: 1px solid lightgrey;
+  border-right: 1px solid lightgrey;
+  padding: 0.5rem 1rem;
+}
+
+label {
+  font-size: 0.9rem;
+  margin-right: 0.2rem;
+}
+
+.sort-select, .order-select {
+  font-size: 0.9rem;
 }
 
 .article-card {
@@ -97,10 +142,18 @@ a:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
+  border: 1px solid lightgrey;
+  border-top: none
 }
 
 .article-card:hover {
   box-shadow: 5px 5px 5px grey;
+}
+
+textarea {
+  font-family: sans-serif;
+  width: 75vw;
+  margin-top: 0.5rem;
 }
 
 .vote-and-comment-info {
@@ -112,7 +165,7 @@ a:hover {
 }
 
 .article-list {
-  border: 1px solid grey;
+  border: 1px solid lightgrey;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -122,7 +175,7 @@ a:hover {
 .article-body {
   text-align: left;
   width: 80vw;
-  font-size: large;
+  font-size: medium;
   color: black;
 }
 
@@ -166,11 +219,14 @@ ul {
 }
 
 .comment-list {
-  border: 1px solid fuchsia;
+  border: 1px solid lightgrey;
 }
 
 .comment-card {
-  border: 1px solid orange;
+  border: 1px solid lightgrey;
+  border-top: none;
+  border-left: none;
+  border-right: none;
 }
 
 .comment-card:hover {
@@ -181,6 +237,8 @@ ul {
   text-align: left;
   width: 80vw;
   margin: 0 1rem;
+  font-size: small;
+  font-weight: lighter;
 }
 
 .comment-btns {
@@ -190,5 +248,6 @@ ul {
 }
 
 form {
-  border: 1px solid yellow;
+  border: 1px solid lightgray;
+  border-top: none;
 }

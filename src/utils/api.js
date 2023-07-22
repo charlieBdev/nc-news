@@ -37,7 +37,6 @@ export const getTopics = () => {
     })
 }
 
-
 export const postComment = (article_id, username, body) => {
     const toPost = {
         username,
@@ -46,5 +45,12 @@ export const postComment = (article_id, username, body) => {
     return api.post(`/articles/${article_id}/comments`, toPost)
     .then(({ data: {commentAdded} }) => {
         return commentAdded
+    })
+}
+
+export const deleteComment = (comment_id) => {
+    return api.delete(`/comments/${comment_id}`)
+    .then((res) => {
+        return res
     })
 }

@@ -17,13 +17,10 @@ const SingleArticle = (props) => {
         title,
         author,
         body,
-        topic,
         created_at,
         votes,
         article_img_url,
     } = props.article
-
-    console.log(topic, '<<< topic')
 
     const [userVotes, setUserVotes] = useState(0)
     const [isClicked, setIsClicked] = useState(false)
@@ -73,7 +70,7 @@ const SingleArticle = (props) => {
                 <p className="article-body">{body}</p>
                 <p>Created: {formatDate(created_at)}</p>
                 <p>{votes + userVotes} votes</p>
-                <button className={!isClicked ? "like-btn" : "liked-btn"} onClick={handleLike}>💖</button>
+                <button className={!isClicked ? "like-btn" : "liked-btn"} onClick={handleLike}>❤️</button>
             </article>
 
             <section>
@@ -81,7 +78,7 @@ const SingleArticle = (props) => {
             </section>
 
             <section>
-                <CommentsList article_id={article_id} comments={comments} setComments={setComments}/>
+                <CommentsList user={user} article_id={article_id} comments={comments} setComments={setComments}/>
             </section>
         </>
     )
