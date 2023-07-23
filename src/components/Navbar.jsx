@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { Link, NavLink } from "react-router-dom"
 import { getTopics } from "../utils/api"
 import { useEffect, useState } from "react"
 
@@ -26,11 +26,10 @@ const Navbar = () => {
         return (
             <>
                 <nav className="navbar">
-                    <Link to="/articles">all</Link>
+                    <NavLink to="/articles" className={({isActive}) => { isActive ? 'active' : ""}}>all</NavLink>
                     {isLoading && <Link>...loading topics...</Link>}
                     {topics.map((topic) => {
-                        // onClick={(e) => setTopic(e.target.value)}
-                        return <Link to={`/articles/${topic.slug}`} key={topic.slug}>{topic.slug}</Link>
+                        return <NavLink to={`/articles/${topic.slug}`} key={topic.slug}>{topic.slug}</NavLink>
                     })}
                 </nav>
             </>

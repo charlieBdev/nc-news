@@ -108,6 +108,10 @@ header > p {
   padding: 1rem;
 }
 
+.active {
+  text-decoration: underline;
+}
+
 a:hover {
   cursor: pointer;
 }
