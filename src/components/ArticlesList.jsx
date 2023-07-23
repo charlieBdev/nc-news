@@ -35,9 +35,9 @@ const ArticlesList = () => {
         return (
             <>
                 <SortOptions />
-                <section className="article-list">
-                <p>{articles.length} articles found</p>
-                    <ul>
+                <section>
+                <p className="articles-found">{articles.length} articles found</p>
+                    <ul className="article-list">
                         {articles.map((article) => {
                             return (
                                 <li key={article.article_id} className="article-li">
