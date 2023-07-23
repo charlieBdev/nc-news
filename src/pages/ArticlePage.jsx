@@ -21,12 +21,15 @@ const ArticlePage = (props) => {
             setIsLoading(false)
         })
         .catch((err) => {
-            setError({err})
+            setError(err)
         })
     }, [article_id])
 
     if (error) {
-        return <Error error={error} />
+        return <Error
+            errorStatus={error.response.status}
+            errorMessage={error.response.data.msg}
+        />
     } else if (isLoading) {
         return <p>...loading article {article_id}...</p>
     } else {

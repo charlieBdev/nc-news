@@ -6,7 +6,6 @@ import Navbar from './components/Navbar'
 import Articles from './pages/Articles'
 import ArticlePage from './pages/ArticlePage'
 import Home from './pages/Home'
-import ErrorPage from './components/Error'
 
 function App() {
 
@@ -21,7 +20,7 @@ function App() {
         <Route path="/articles" element={<Articles />}></Route>
         <Route path="/articles/:topic" element={<Articles />}></Route>
         <Route path="/article/:article_id" element={<ArticlePage user={user}/>}></Route>
-        <Route path="*" element={<ErrorPage />} />
+        <Route path="*" element={<Error errorStatus={404} errorMessage={'Not found'} />} />
       </Routes>
     </>
   )

@@ -17,13 +17,16 @@ const CommentsList = (props) => {
             setComments(commentsFromApi)
             setIsLoading(false)
         })
-        .catch(({err}) => {
+        .catch((err) => {
             setError(err)
         })
     }, [comments])
 
     if (error) {
-        return <Error error={error}/>
+        return <Error
+            errorStatus={error.response.status}
+            errorMessage={error.response.data.msg}
+        />
     } else if (isLoading) {
         return <p>...loading...</p>
     } else {
