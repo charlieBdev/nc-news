@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { getArticleById } from "../utils/api"
 import SingleArticle from "../components/SingleArticle"
+import Error from "../components/Error"
 
 
 const ArticlePage = (props) => {
@@ -11,7 +12,7 @@ const ArticlePage = (props) => {
     const { article_id } = useParams()
     const [article, setArticle] = useState([])
     const [isLoading, setIsLoading] = useState(true)
-    const [isError, setIsError] = useState(false)
+    const [error, setError] = useState(null)
 
     useEffect(() => {
         getArticleById(article_id)
@@ -19,15 +20,15 @@ const ArticlePage = (props) => {
             setArticle(articleFromApi)
             setIsLoading(false)
         })
-        .catch(() => {
-            setIsError(true)
+        .catch((err) => {
+            setError({err})
         })
     }, [article_id])
 
-    if (isLoading) {
+    if (error) {
+        return <Error error={error} />
+    } else if (isLoading) {
         return <p>...loading article {article_id}...</p>
-    } else if (isError) {
-        return <p>Error!</p>
     } else {
         return (
             <SingleArticle article={article} user={user}/>

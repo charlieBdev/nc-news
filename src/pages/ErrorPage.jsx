@@ -1,6 +1,6 @@
 const ErrorPage = () => {
     return (
-        <p>Error!!!!!!</p>
+        <p>Error: Path does not exist!</p>
     )
 }
 

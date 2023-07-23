@@ -13,7 +13,11 @@
 
 .home-main {
   border: 1px solid lightgrey;
+  border-top: none;
   height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 h1 {
@@ -95,7 +99,6 @@ header > p {
 
 .navbar {
   border: 1px solid lightgray;
-  border-bottom: none;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   display: flex;
@@ -116,6 +119,7 @@ a:hover {
   justify-content: flex-end;
   align-items: center;
   border: 1px solid lightgrey;
+  border-top: none;
   padding: 0.5rem 1rem;
   gap: 0.3rem;
 }
@@ -169,6 +173,11 @@ label {
   flex-direction: column;
   align-items: center;
   border: 1px solid lightgrey;
+  border-top: none;
+}
+
+.single-article-card:nth-of-type(3) {
+  flex-grow: 1;
 }
 
 .article-card:hover {
@@ -284,4 +293,13 @@ textarea {
 
 .comment-length-not-ok {
   text-decoration: underline;
+}
+
+.error {
+  border: 1px solid lightgrey;
+  border-top: none;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

@@ -1,6 +1,7 @@
 import CommentCard from "./CommentCard"
 import { getCommentsByArticleId } from "../utils/api"
 import { useEffect, useState } from "react"
+import Error from "./Error"
 
 const CommentsList = (props) => {
     
@@ -8,7 +9,7 @@ const CommentsList = (props) => {
     const [isLoading, setIsLoading] = useState(true)
     const [isDeleting, setIsDeleting] = useState(false)
     const [isDeleted, setIsDeleted] = useState(true)
-    const [isError, setIsError] = useState(false)
+    const [error, setError] = useState(false)
 
     useEffect(() => {
         getCommentsByArticleId(article_id)
@@ -16,15 +17,15 @@ const CommentsList = (props) => {
             setComments(commentsFromApi)
             setIsLoading(false)
         })
-        .catch((err) => {
-            setIsError(true)
+        .catch(({err}) => {
+            setError(err)
         })
     }, [comments])
 
-    if (isLoading) {
+    if (error) {
+        return <Error error={error}/>
+    } else if (isLoading) {
         return <p>...loading...</p>
-    } else if (isError) {
-        return <p>Error!</p>
     } else {
         return (
             <section className="comment-list">

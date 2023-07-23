@@ -3,6 +3,7 @@ import { useParams, useSearchParams } from "react-router-dom"
 import { getArticles } from "../utils/api"
 import ArticleCard from "./ArticleCard"
 import SortOptions from "./SortOptions"
+import Error from "./Error"
 
 const ArticlesList = () => {
 
@@ -14,7 +15,7 @@ const ArticlesList = () => {
 
     const [articles, setArticles] = useState([])
     const [isLoading, setIsLoading] = useState(true)
-    const [isError, setIsError] = useState(false)
+    const [error, setError] = useState(false)
 
     useEffect(() => {
         getArticles(topic, sortByQuery, orderQuery)
@@ -23,14 +24,14 @@ const ArticlesList = () => {
             setIsLoading(false)
         })
         .catch((err) => {
-            setIsError(true)
+            setError({err})
         })
     }, [topic, sortByQuery, orderQuery])
 
-    if (isLoading) {
+    if (error) {
+        return <Error error={error}/>
+    } else if (isLoading) {
         return <p>...loading articles...</p>
-    } else if (isError) {
-        return <p>Error!</p>
     } else {
         return (
             <>
