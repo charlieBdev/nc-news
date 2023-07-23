@@ -1,9 +1,9 @@
 const Home = () => {
     return (
-        <section>
+        <main className="home-main">
             <h2>Welcome to NC News</h2>
             <h3>Choose a topic</h3>
-        </section>
+        </main>
     )
 }
 

@@ -14,6 +14,12 @@
   height:60px;
 }
 
+.home-main {
+  border: 1px solid lightgrey;
+  
+  height: 100vh;
+}
+
 h1 {
   font-size: 1.4rem;
 }
@@ -165,12 +171,6 @@ label {
   box-shadow: 5px 5px 5px grey;
 }
 
-textarea {
-  font-family: sans-serif;
-  width: 75vw;
-  margin-top: 0.5rem;
-}
-
 .vote-and-comment-info {
   display: flex;
 }
@@ -266,4 +266,15 @@ form {
   border: 1px solid lightgray;
   border-top: none;
   border-bottom: none;
+}
+
+textarea {
+  font-family: sans-serif;
+  width: 75vw;
+  margin-top: 0.5rem;
+  border-radius: 5px;
+}
+
+.comment-length-not-ok {
+  text-decoration: underline;
 }

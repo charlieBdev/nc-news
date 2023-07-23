@@ -32,7 +32,7 @@ const CommentForm = (props) => {
     return (
         <form onSubmit={handleSumbit}>
             <textarea rows="3" cols="25" type="text" placeholder="Add comment" value={newComment} onChange={(event) => setNewComment(event.target.value)}/>
-            <p>{200 - newComment.length} chars left</p>
+            <p className={newComment.length > 200 ? "comment-length-not-ok" : "comment-length-ok"}>{200 - newComment.length} chars left</p>
             <button className="comment-btn" disabled={btnIsDisabled} type="submit" value="submit">Comment</button>
             {apiError && <p>Sorry, that did not work. Please try again.</p>}
         </form>
