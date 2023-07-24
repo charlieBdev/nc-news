@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom"
 const Error = ({errorStatus, errorMessage}) => {
 
     const navigate = useNavigate()
-    // const { err: { response } } = error
 
     return (
         <section className="error">

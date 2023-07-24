@@ -18,17 +18,18 @@ const CommentsList = (props) => {
             setIsLoading(false)
         })
         .catch((err) => {
+            setIsLoading(false)
             setError(err)
         })
     }, [comments])
 
-    if (error) {
+    if (isLoading) {
+        return <p>...loading...</p>
+    } else if (error) {
         return <Error
             errorStatus={error.response.status}
             errorMessage={error.response.data.msg}
         />
-    } else if (isLoading) {
-        return <p>...loading...</p>
     } else {
         return (
             <section className="comment-list">

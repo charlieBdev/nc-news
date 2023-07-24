@@ -6,10 +6,16 @@ import Navbar from './components/Navbar'
 import Articles from './pages/Articles'
 import ArticlePage from './pages/ArticlePage'
 import Home from './pages/Home'
+import Error from './components/Error'
 
 function App() {
 
   const [user, setUser] = useState('tickle122')
+
+  const error = {
+    errorStatus: 404,
+    errorMessage: 'Not found'
+  }
 
   return (
     <>
@@ -20,7 +26,7 @@ function App() {
         <Route path="/articles" element={<Articles />}></Route>
         <Route path="/articles/:topic" element={<Articles />}></Route>
         <Route path="/article/:article_id" element={<ArticlePage user={user}/>}></Route>
-        <Route path="*" element={<Error errorStatus={404} errorMessage={'Not found'} />} />
+        <Route path="*" element={<Error errorStatus={error.errorStatus} errorMessage={error.errorMessage}/>} />
       </Routes>
     </>
   )

@@ -1,5 +1,5 @@
 import { Link, NavLink } from "react-router-dom"
-import logo from '../../public/images/primary-logo.jpeg'
+import logo from '../images/primary-logo.jpeg'
 
 const Header = (props) => {
     const { user } = props

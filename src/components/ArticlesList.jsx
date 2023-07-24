@@ -24,17 +24,18 @@ const ArticlesList = () => {
             setIsLoading(false)
         })
         .catch((err) => {
+            setIsLoading(false)
             setError(err)
         })
     }, [topic, sortByQuery, orderQuery])
 
-    if (error) {
+    if (isLoading) {
+        return <p>...loading articles...</p>
+    } else if (error) {
         return <Error 
             errorStatus={error.response.status}
             errorMessage={error.response.data.msg}
         />
-    } else if (isLoading) {
-        return <p>...loading articles...</p>
     } else {
         return (
             <>

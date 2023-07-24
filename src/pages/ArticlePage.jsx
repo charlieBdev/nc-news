@@ -21,17 +21,18 @@ const ArticlePage = (props) => {
             setIsLoading(false)
         })
         .catch((err) => {
+            setIsLoading(false)
             setError(err)
         })
     }, [article_id])
 
-    if (error) {
+    if (isLoading) {
+        return <p>...loading article {article_id}...</p>
+    } else if (error) {
         return <Error
             errorStatus={error.response.status}
             errorMessage={error.response.data.msg}
         />
-    } else if (isLoading) {
-        return <p>...loading article {article_id}...</p>
     } else {
         return (
             <SingleArticle article={article} user={user}/>
