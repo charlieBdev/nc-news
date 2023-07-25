@@ -5,7 +5,7 @@
 NC-News is similar to Reddit.
 
 Users can:
-<ol>
+<ul>
   <li>read a random article from the home page</li>
   <li>view and select topics</li>
   <li>sort articles and order them</li>
@@ -15,14 +15,14 @@ Users can:
   <li>unlike an article</li>
   <li>comment on an article</li>
   <li>delete their own comments</li>
-</ol>
+</ul>
 
 Features to add (dependent on backend capability being added):
 <ul>
   <li>User accounts</li>
 </ul>
 
-[View the backend repo]()
+[View the backend repo](https://github.com/charlieBdev/nc_news)
 
 The minimum version of Node required to run locally is ................. You can check your Node version using node --version in your terminal.
 
