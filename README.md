@@ -29,7 +29,7 @@ The minimum version of Node required to run locally is v19.8.1.
 How to Run:
 
 <ul>
-  <li>Clone the repo></li>
+  <li>Clone the repo</li>
   <li>CD into the repo</li>
   <li>Install dependencies (npm i)</li>
   <li>npm run dev</li>
