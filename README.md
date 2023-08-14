@@ -24,6 +24,13 @@ Features to add (dependent on backend capability being added):
 
 [View the backend repo](https://github.com/charlieBdev/nc_news)
 
-The minimum version of Node required to run locally is ................. You can check your Node version using node --version in your terminal.
+The minimum version of Node required to run locally is v19.8.1.
 
-Clear instructions on how to run your project locally, e.g. git clone <repo-url>, cd..., etc.
+How to Run:
+
+<ul>
+  <li>Clone the repo></li>
+  <li>CD into the repo</li>
+  <li>Install dependencies (npm i)</li>
+  <li>npm run dev</li>
+</ul>
