@@ -1,6 +1,11 @@
+import { useState } from "react"
 import { useSearchParams } from "react-router-dom"
 
 const SortOptions = () => {
+
+    const [sortOrder, setSortOrder] = useState("desc")
+
+    console.log(sortOrder, '<<< sortOrder')
 
     const [searchParams, setSearchParams] = useSearchParams()
 
@@ -14,6 +19,7 @@ const SortOptions = () => {
         const newParams = new URLSearchParams(searchParams)
         newParams.set('order', order)
         setSearchParams(newParams)
+        setSortOrder(sortOrder === 'desc' ? 'asc' : 'desc')
     }
 
     return (
@@ -24,11 +30,11 @@ const SortOptions = () => {
                 <option value="created_at">Date</option>
                 <option value="comment_count">Comment Count</option>
                 <option value="votes">Votes</option>
-            </select> 
+            </select>
 
-            <button className="order-btn" value='desc' onClick={(e) => setOrder(e.target.value)}>desc</button>
-            <button className="order-btn" value='asc' onClick={(e) => setOrder(e.target.value)}>asc</button>
-            
+            <button className={sortOrder === 'desc' ? 'active-order-btn' : 'order-btn'} value='desc' onClick={(e) => setOrder(e.target.value)}>desc</button>
+            <button className={sortOrder === 'asc' ? 'active-order-btn' : 'order-btn'} value='asc' onClick={(e) => setOrder(e.target.value)}>asc</button>
+
         </div>
     )
 }
