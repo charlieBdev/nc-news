@@ -1,4 +1,5 @@
 import './App.css'
+import './css/Articles.css'
 import { Routes, Route } from 'react-router-dom'
 import { useState } from 'react'
 import Header from './components/Header'
@@ -19,14 +20,14 @@ function App() {
 
   return (
     <>
-      <Header user={user}/>
+      <Header user={user} />
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="/articles" element={<Articles />}></Route>
         <Route path="/articles/:topic" element={<Articles />}></Route>
-        <Route path="/article/:article_id" element={<ArticlePage user={user}/>}></Route>
-        <Route path="*" element={<Error errorStatus={error.errorStatus} errorMessage={error.errorMessage}/>} />
+        <Route path="/article/:article_id" element={<ArticlePage user={user} />}></Route>
+        <Route path="*" element={<Error errorStatus={error.errorStatus} errorMessage={error.errorMessage} />} />
       </Routes>
     </>
   )

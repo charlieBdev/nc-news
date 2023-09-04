@@ -4,6 +4,8 @@ import { useState } from "react"
 import { patchArticleVotes } from "../utils/api"
 import CommentsList from "./CommentsList"
 import CommentForm from "./CommentForm"
+import { FcLikePlaceholder } from "react-icons/fc"
+import { FcLike } from "react-icons/fc"
 
 
 const SingleArticle = (props) => {
@@ -11,7 +13,7 @@ const SingleArticle = (props) => {
     const navigate = useNavigate()
 
     const { user } = props
-    
+
     const {
         article_id,
         title,
@@ -37,26 +39,26 @@ const SingleArticle = (props) => {
         })
         if (!isClicked) {
             patchArticleVotes(article_id, 1)
-            .then(() => {
-                setIsClicked(true)
-            })
-            .catch((err) => {
-                setUserVotes((currentUserVotes) => {
-                    return currentUserVotes - 1
+                .then(() => {
+                    setIsClicked(true)
                 })
-                setIsClicked(false)
-            })
+                .catch((err) => {
+                    setUserVotes((currentUserVotes) => {
+                        return currentUserVotes - 1
+                    })
+                    setIsClicked(false)
+                })
         } else {
             patchArticleVotes(article_id, -1)
-            .then(() => {
-                setIsClicked(false)
-            })
-            .catch((err) => {
-                setUserVotes((currentUserVotes) => {
-                    return currentUserVotes + 1
+                .then(() => {
+                    setIsClicked(false)
                 })
-                setIsClicked(true)
-            })
+                .catch((err) => {
+                    setUserVotes((currentUserVotes) => {
+                        return currentUserVotes + 1
+                    })
+                    setIsClicked(true)
+                })
         }
     }
 
@@ -70,15 +72,15 @@ const SingleArticle = (props) => {
                 <p className="article-body">{body}</p>
                 <p>Created: {formatDate(created_at)}</p>
                 <p>{votes + userVotes} votes</p>
-                <button className={!isClicked ? "like-btn" : "liked-btn"} onClick={handleLike}>❤️</button>
-            </article>
+                <button className="like-btn" onClick={handleLike}>{isClicked ? <FcLike /> : <FcLikePlaceholder />}</button>
+            </article >
 
             <section>
-                <CommentForm user={user} setComments={setComments}/>
+                <CommentForm user={user} setComments={setComments} />
             </section>
 
             <section>
-                <CommentsList user={user} article_id={article_id} comments={comments} setComments={setComments}/>
+                <CommentsList user={user} article_id={article_id} comments={comments} setComments={setComments} />
             </section>
         </>
     )
