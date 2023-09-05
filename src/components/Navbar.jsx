@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom"
+import { NavLink, useParams } from "react-router-dom"
 import { getTopics } from "../utils/api"
 import { useEffect, useState } from "react"
 
@@ -20,6 +20,8 @@ export const Navbar = () => {
       })
   }, [])
 
+  const topicsAndAll = [{ slug: 'all' }, ...topics]
+
   if (isError) {
     return <p>Error!</p>
   } else {
@@ -29,8 +31,7 @@ export const Navbar = () => {
           <p>...loading topics...</p>
         ) : (
           <>
-            <NavLink to="/articles" activeClassName="active-link">all</NavLink>
-            {topics.map((topic) => (
+            {topicsAndAll.map((topic) => (
               <NavLink
                 to={`/articles/${topic.slug}`}
                 key={topic.slug}

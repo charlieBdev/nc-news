@@ -23,7 +23,7 @@ export const SortOptions = () => {
     }
 
     return (
-        <div className="flex justify-center items-center space-x-3">
+        <div className="flex justify-center items-center space-x-3 border">
             <div className="space-x-3">
                 <label htmlFor="sort-select">Sort by:</label>
                 <select className="border" name="sort-select" id="sort-select" onChange={(e) => setSortBy(e.target.value)}>
