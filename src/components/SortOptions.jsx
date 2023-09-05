@@ -1,11 +1,11 @@
 import { useState } from "react"
 import { useSearchParams } from "react-router-dom"
+import { TbSortAscending } from "react-icons/tb"
+import { TbSortDescending } from "react-icons/tb"
 
-const SortOptions = () => {
+export const SortOptions = () => {
 
     const [sortOrder, setSortOrder] = useState("desc")
-
-    console.log(sortOrder, '<<< sortOrder')
 
     const [searchParams, setSearchParams] = useSearchParams()
 
@@ -23,20 +23,19 @@ const SortOptions = () => {
     }
 
     return (
-        <div className="sort-options">
-
-            <label htmlFor="sort-select">Sort by:</label>
-            <select name="sort-select" id="sort-select" onChange={(e) => setSortBy(e.target.value)}>
-                <option value="created_at">Date</option>
-                <option value="comment_count">Comment Count</option>
-                <option value="votes">Votes</option>
-            </select>
-
-            <button className={sortOrder === 'desc' ? 'active-order-btn' : 'order-btn'} value='desc' onClick={(e) => setOrder(e.target.value)}>desc</button>
-            <button className={sortOrder === 'asc' ? 'active-order-btn' : 'order-btn'} value='asc' onClick={(e) => setOrder(e.target.value)}>asc</button>
-
+        <div className="flex justify-center items-center space-x-3">
+            <div className="space-x-3">
+                <label htmlFor="sort-select">Sort by:</label>
+                <select className="border" name="sort-select" id="sort-select" onChange={(e) => setSortBy(e.target.value)}>
+                    <option value="created_at">Date</option>
+                    <option value="comment_count">Comment Count</option>
+                    <option value="votes">Votes</option>
+                </select>
+            </div>
+            <div className="flex space-x-3 items-center">
+                <button className={sortOrder === 'desc' ? 'border text-xl' : 'text-xl'} value='desc' onClick={(e) => setOrder('asc')}><TbSortAscending /></button>
+                <button className={sortOrder === 'asc' ? 'border text-xl' : 'text-xl'} value='asc' onClick={(e) => setOrder('desc')}><TbSortDescending /></button>
+            </div>
         </div>
     )
 }
-
-export default SortOptions

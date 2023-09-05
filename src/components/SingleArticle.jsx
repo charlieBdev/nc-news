@@ -2,13 +2,12 @@ import { useNavigate } from "react-router-dom"
 import { formatDate } from "../utils/utils"
 import { useState } from "react"
 import { patchArticleVotes } from "../utils/api"
-import CommentsList from "./CommentsList"
-import CommentForm from "./CommentForm"
+import { CommentsList, CommentForm } from "../components"
 import { FcLikePlaceholder } from "react-icons/fc"
 import { FcLike } from "react-icons/fc"
 
 
-const SingleArticle = (props) => {
+export const SingleArticle = (props) => {
 
     const navigate = useNavigate()
 
@@ -70,7 +69,7 @@ const SingleArticle = (props) => {
                 <img className="article-img" src={article_img_url} alt={title} />
                 <h4><span className="by-author">By</span> {author}</h4>
                 <p className="article-body">{body}</p>
-                <p>Created: {formatDate(created_at)}</p>
+                <p>{formatDate(created_at)}</p>
                 <p>{votes + userVotes} votes</p>
                 <button className="like-btn" onClick={handleLike}>{isClicked ? <FcLike /> : <FcLikePlaceholder />}</button>
             </article >
@@ -85,5 +84,3 @@ const SingleArticle = (props) => {
         </>
     )
 }
-
-export default SingleArticle

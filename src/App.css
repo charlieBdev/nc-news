@@ -1,14 +1,6 @@
-#root {
+/* #root {
   text-align: center;
   font-family: sans-serif;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-.nc-logo {
-  height:60px;
 }
 
 .home-main {
@@ -247,4 +239,4 @@ textarea {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
+} */

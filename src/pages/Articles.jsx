@@ -1,12 +1,10 @@
-import ArticlesList from "../components/ArticlesList"
+import { ArticlesList } from "../components"
 
-const Articles = () => {
-    
+export const Articles = () => {
+
     return (
-        <main>
+        <section>
             <ArticlesList />
-        </main>
+        </section>
     )
 }
-
-export default Articles

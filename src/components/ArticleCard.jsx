@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 import { formatDate } from "../utils/utils"
 
 
-const ArticleCard = (props) => {
+export const ArticleCard = (props) => {
     const {
         author,
         title,
@@ -15,16 +15,18 @@ const ArticleCard = (props) => {
 
     return (
         <article className="article-card">
-            <Link to={`/article/${article_id}`}><img className="article-img" src={article_img_url} alt={title} /></Link>
-            <Link to={`/article/${article_id}`}><h3>{title}</h3></Link>
-            <h4><span className="by-author">By</span> {author}</h4>
-            <p>Created: {formatDate(created_at)}</p>
-            <div className="vote-and-comment-info">
-                <p>{votes} votes</p>
-                <p>{comment_count} comments</p>
+            <div className="">
+                <Link to={`/article/${article_id}`}><img className="article-img" src={article_img_url} alt={title} /></Link>
+                <Link to={`/article/${article_id}`}><h3>{title}</h3></Link>
+                <h4><span className="by-author">By</span> {author}</h4>
+            </div>
+            <div>
+                <p>{formatDate(created_at)}</p>
+                <div className="vote-and-comment-info">
+                    <p>{votes} votes</p>
+                    <p>{comment_count} comments</p>
+                </div>
             </div>
         </article>
     )
 }
-
-export default ArticleCard

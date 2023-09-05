@@ -1,18 +1,16 @@
 import { Link } from "react-router-dom"
 
-const Home = () => {
+export const Home = () => {
 
-    const randomArticle = () => {
-        return Math.floor(Math.random() * 37 + 1)
-    }
+	const randomArticle = () => {
+		return Math.floor(Math.random() * 37 + 1)
+	}
 
-    return (
-        <main className="home-main">
-            <h2>Welcome to NC News</h2>
-            <h3>Choose a topic above or...</h3>
-            <Link to={`/article/${randomArticle()}`}>Read a random article</Link>
-        </main>
-    )
+	return (
+		<section className="text-center flex flex-col justify-start h-full space-y-12">
+			<h2 className="text-lg font-bold">Welcome to NC News</h2>
+			<h3>Choose a topic above or...</h3>
+			<Link className="underline" to={`/article/${randomArticle()}`}>Read a random article</Link>
+		</section>
+	)
 }
-
-export default Home

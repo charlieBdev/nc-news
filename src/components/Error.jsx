@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom"
 
-const Error = ({errorStatus, errorMessage}) => {
+export const Error = ({ errorStatus, errorMessage }) => {
 
     const navigate = useNavigate()
 
@@ -13,5 +13,3 @@ const Error = ({errorStatus, errorMessage}) => {
         </section>
     )
 }
-
-export default Error

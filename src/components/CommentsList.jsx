@@ -1,10 +1,10 @@
-import CommentCard from "./CommentCard"
+import { CommentCard } from "../components"
 import { getCommentsByArticleId } from "../utils/api"
 import { useEffect, useState } from "react"
-import Error from "./Error"
+import { Error } from "../components"
 
-const CommentsList = (props) => {
-    
+export const CommentsList = (props) => {
+
     const { article_id, comments, setComments, user } = props
     const [isLoading, setIsLoading] = useState(true)
     const [isDeleting, setIsDeleting] = useState(false)
@@ -13,14 +13,14 @@ const CommentsList = (props) => {
 
     useEffect(() => {
         getCommentsByArticleId(article_id)
-        .then((commentsFromApi) => {
-            setComments(commentsFromApi)
-            setIsLoading(false)
-        })
-        .catch((err) => {
-            setIsLoading(false)
-            setError(err)
-        })
+            .then((commentsFromApi) => {
+                setComments(commentsFromApi)
+                setIsLoading(false)
+            })
+            .catch((err) => {
+                setIsLoading(false)
+                setError(err)
+            })
     }, [comments])
 
     if (isLoading) {
@@ -42,7 +42,7 @@ const CommentsList = (props) => {
                                     user={user}
                                     comment={comment}
                                     comments={comments}
-                                    setComments={setComments} 
+                                    setComments={setComments}
                                     isDeleted={isDeleted}
                                     setIsDeleted={setIsDeleted}
                                     isDeleting={isDeleting}
@@ -56,5 +56,3 @@ const CommentsList = (props) => {
         )
     }
 }
-
-export default CommentsList

@@ -2,7 +2,7 @@ import { useState } from "react"
 import { deleteComment, getCommentsByArticleId } from "../utils/api"
 import { formatDate } from "../utils/utils"
 
-const CommentCard = (props) => {
+export const CommentCard = (props) => {
     const {
         author,
         body,
@@ -31,10 +31,10 @@ const CommentCard = (props) => {
             setIsDeleted(true)
             setIsDeleting(false)
         })
-        .catch((err) => {
-            setIsDeleting(false)
-            setIsDeleted(false)
-        })
+            .catch((err) => {
+                setIsDeleting(false)
+                setIsDeleted(false)
+            })
     }
 
     return (
@@ -46,9 +46,6 @@ const CommentCard = (props) => {
                 {user === author && <button disabled={isDeleting} onClick={handleDelete} className="delete-comment-btn">{!isDeleting ? 'Delete' : 'Deleting'}</button>}
             </div>
         </>
-        
+
     )
 }
-
-
-export default CommentCard
