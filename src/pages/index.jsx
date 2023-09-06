@@ -1,3 +1,3 @@
-export { Home } from './Home'
-export { Articles } from './Articles'
+export { HomePage } from './HomePage'
+export { ArticlesPage } from './ArticlesPage'
 export { ArticlePage } from './ArticlePage'
