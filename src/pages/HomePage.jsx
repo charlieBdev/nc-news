@@ -12,8 +12,7 @@ export const HomePage = () => {
 			<h2 className="text-3xl font-bold text-green-500">Welcome to NC News</h2>
 			<NavLink className="font-bold animate-pulse" to={`/articles/all?sort_by=created_at&order=desc`}>ENTER</NavLink>
 			<h3>Proudly unregulated by Ofcom since 2023.</h3>
-
-			<Link className="" to={`/article/${randomArticle()}`}><GiCardRandom className="w-12 h-12 text-green-500 mx-auto animate-pulse" /></Link>
+			<Link className="" to={`/article/${randomArticle()}`}><GiCardRandom className="w-12 h-12 text-green-500 mx-auto animate-pulse rounded-full hover:shadow hover:cursor-pointer" /></Link>
 		</section>
 	)
 }

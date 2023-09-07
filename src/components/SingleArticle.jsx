@@ -3,7 +3,7 @@ import { formatDate } from "../utils/utils"
 import { useState } from "react"
 import { patchArticleVotes } from "../utils/api"
 import { CommentsList, CommentForm } from "../components"
-import { FcLikePlaceholder, FcLike } from "react-icons/fc"
+import { AiOutlineLike, AiFillLike } from "react-icons/ai"
 import { TiArrowBackOutline } from "react-icons/ti"
 
 
@@ -62,12 +62,12 @@ export const SingleArticle = (props) => {
     }
 
     return (
-        <div className="flex flex-col space-x-3 align-middle">
+        <div className="flex flex-col space-y-3 items-center">
             <article className="space-y-3">
                 <div className="flex justify-between space-x-1">
                     <h3 className="font-bold">{title}</h3>
                     <TiArrowBackOutline
-                        className="w-8 h-8 text-green-500 rounded-full hover:shadow hover:cursor-pointer"
+                        className="w-8 h-8 min-w-8 min-h-8 text-green-500 rounded-full hover:shadow hover:cursor-pointer"
                         onClick={() => navigate(-1)}
                     />
                 </div>
@@ -77,17 +77,17 @@ export const SingleArticle = (props) => {
                     <p className="text-neutral-500">{formatDate(created_at)}</p>
                 </div>
                 <p className="">{body}</p>
-                <p className="text-neutral-500">{votes + userVotes} votes</p>
-                <button className="" onClick={handleLike}>{isClicked ? <FcLike /> : <FcLikePlaceholder />}</button>
+                <div className="flex space-x-1 items-center justify-end">
+                    <p className="text-neutral-500">{votes + userVotes}</p>
+                    <button className="text-green-500 rounded-full hover:shadow hover:cursor-pointer" onClick={handleLike}>{isClicked ? <AiFillLike className="w-8 h-8" /> : <AiOutlineLike className="w-8 h-8" />}</button>
+                </div>
             </article >
 
-            <section>
-                <CommentForm user={user} setComments={setComments} />
-            </section>
+            <CommentForm user={user} setComments={setComments} />
 
-            <section>
+            {/* <section>
                 <CommentsList user={user} article_id={article_id} comments={comments} setComments={setComments} />
-            </section>
+            </section> */}
         </div>
     )
 }

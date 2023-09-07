@@ -1,40 +1,58 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { postComment } from "../utils/api"
 import { useParams } from "react-router-dom"
 
-export const CommentForm = (props) => {
+export const CommentForm = ({ user, setComments }) => {
 
-    const { article_id } = useParams()
-    const { user, setComments } = props
-    const [newComment, setNewComment] = useState('')
-    const [apiError, setApiError] = useState(false)
-    const [btnIsDisabled, setBtnIsDisabled] = useState(false)
+  const { article_id } = useParams()
+  const [newComment, setNewComment] = useState('')
+  const [error, setError] = useState(null)
+  const [btnIsDisabled, setBtnIsDisabled] = useState(false)
 
-    const handleSumbit = (event) => {
-        event.preventDefault()
-        if (newComment.length > 0 && newComment.length <= 200) {
-            setBtnIsDisabled(true)
-            postComment(article_id, user, newComment)
-                .then((res) => {
-                    setBtnIsDisabled(false)
-                    setComments((currComments) => {
-                        return [res, ...currComments]
-                    })
-                    setNewComment('')
-                    setApiError(false)
-                })
-                .catch(() => {
-                    setApiError(true)
-                })
-        }
+  useEffect(() => {
+    setBtnIsDisabled(newComment.length === 0 || newComment.length > 160);
+  }, [newComment]);
+
+  const handleSubmit = (event) => {
+    event.preventDefault()
+
+    if (newComment.length > 0 && newComment.length <= 160) {
+      setBtnIsDisabled(true)
+      postComment(article_id, user, newComment)
+        .then((res) => {
+          setBtnIsDisabled(false)
+          setComments((currComments) => {
+            return [res, ...currComments]
+          })
+          setNewComment('')
+          setError(null)
+        })
+        .catch(() => {
+          setError('Sorry, something went wrong. Please try again.')
+          setBtnIsDisabled(false)
+        })
     }
+  }
 
-    return (
-        <form onSubmit={handleSumbit}>
-            <textarea rows="3" cols="25" type="text" placeholder="Add comment" value={newComment} onChange={(event) => setNewComment(event.target.value)} />
-            <p className={newComment.length > 200 ? "comment-length-not-ok" : "comment-length-ok"}>{200 - newComment.length} chars left</p>
-            <button className="comment-btn" disabled={btnIsDisabled} type="submit" value="submit">Comment</button>
-            {apiError && <p>Sorry, that did not work. Please try again.</p>}
-        </form>
-    )
+  return (
+    <form onSubmit={handleSubmit} className="flex flex-col w-full">
+      <textarea
+        className="border w-full p-3"
+        rows="3"
+        type="text"
+        placeholder="Add comment"
+        value={newComment}
+        onChange={(event) => setNewComment(event.target.value)} />
+      <p className={newComment.length > 160 ? "text-red-500 text-right" : 'text-neutral-500 text-right'}>{160 - newComment.length} chars left</p>
+      <button
+        className={btnIsDisabled ? 'mx-auto border rounded-lg border-neutral-500 text-neutral-500 px-3 py-2' : 'mx-auto border-2 rounded-lg border-green-500 text-green-500 font-bold px-3 py-2 hover:shadow'}
+        disabled={btnIsDisabled}
+        type="submit"
+        value="submit"
+      >
+        Comment
+      </button>
+      {error && <p>{error}</p>}
+    </form >
+  )
 }
