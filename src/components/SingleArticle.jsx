@@ -27,6 +27,8 @@ export const SingleArticle = (props) => {
   const [isClicked, setIsClicked] = useState(false)
   const [comments, setComments] = useState([])
 
+  // const isLiked = localStorage.getItem(`article_${article_id}_liked`) === 'false'
+
   const handleLike = (event) => {
     event.preventDefault()
     setUserVotes((currVotes) => {
@@ -40,6 +42,7 @@ export const SingleArticle = (props) => {
       patchArticleVotes(article_id, 1)
         .then(() => {
           setIsClicked(true)
+          // localStorage.setItem(`article_${article_id}_liked`, 'true')
         })
         .catch((err) => {
           setUserVotes((currentUserVotes) => {
@@ -51,6 +54,7 @@ export const SingleArticle = (props) => {
       patchArticleVotes(article_id, -1)
         .then(() => {
           setIsClicked(false)
+          // localStorage.removeItem(`article_${article_id}_liked`);
         })
         .catch((err) => {
           setUserVotes((currentUserVotes) => {
@@ -78,7 +82,7 @@ export const SingleArticle = (props) => {
         </div>
         <p className="">{body}</p>
         <div className="flex space-x-1 items-center justify-end">
-          <p className="text-neutral-500">{votes + userVotes}</p>
+          <p className="text-neutral-500 text-sm">{votes + userVotes}</p>
           <button className="text-green-500 rounded-full hover:shadow hover:cursor-pointer" onClick={handleLike}>{isClicked ? <AiFillLike className="w-8 h-8" /> : <AiOutlineLike className="w-8 h-8" />}</button>
         </div>
       </article >

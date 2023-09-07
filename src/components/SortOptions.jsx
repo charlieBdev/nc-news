@@ -52,7 +52,7 @@ export const SortOptions = ({
       </div>
       <div className="flex space-x-3 items-center">
         {isLoading ? (
-          <p className="text-center p-3 text-neutral-500 animate-pulse">...loading articles...</p>
+          <p className="text-center p-3 text-neutral-500 animate-pulse">...please wait...</p>
         ) : (
           <p className="text-center p-3 text-neutral-500">{articles.length} articles found</p>
         )}

@@ -42,8 +42,9 @@ export const CommentForm = ({ user, setComments }) => {
         type="text"
         placeholder="Add a comment..."
         value={newComment}
+        id="comment"
         onChange={(event) => setNewComment(event.target.value)} />
-      <p className={newComment.length > 160 ? "text-red-500 text-right" : 'text-neutral-500 text-right'}>{160 - newComment.length} chars left</p>
+      <p className={newComment.length > 160 ? "text-red-500 text-right" : 'text-neutral-500 text-right text-sm'}>{160 - newComment.length}</p>
       <button
         className={btnIsDisabled ? 'mx-auto border rounded-lg border-neutral-500 text-neutral-500 px-3 py-2' : 'mx-auto border-2 rounded-lg border-green-500 text-green-500 font-bold px-3 py-2 hover:shadow'}
         disabled={btnIsDisabled}
