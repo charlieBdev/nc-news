@@ -1,8 +1,8 @@
 import { formatDistanceToNow } from 'date-fns'
 
-export const capitaliseWord = (word) => {
-    return word.charAt(0).toUpperCase() + timeAgo.slice(1)
-}
+// export const capitaliseTopic = (word) => {
+//     return word.charAt(0).toUpperCase() + timeAgo.slice(1)
+// }
 
 export const formatDate = (date) => {
     const inputDate = new Date(Date.parse(date));
