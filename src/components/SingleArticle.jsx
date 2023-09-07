@@ -3,8 +3,8 @@ import { formatDate } from "../utils/utils"
 import { useState } from "react"
 import { patchArticleVotes } from "../utils/api"
 import { CommentsList, CommentForm } from "../components"
-import { FcLikePlaceholder } from "react-icons/fc"
-import { FcLike } from "react-icons/fc"
+import { FcLikePlaceholder, FcLike } from "react-icons/fc"
+import { IoCaretBackCircleOutline } from "react-icons/io5"
 
 
 export const SingleArticle = (props) => {
@@ -62,16 +62,23 @@ export const SingleArticle = (props) => {
     }
 
     return (
-        <>
-            <article className="single-article-card">
-                <button className="back-btn" onClick={() => navigate(-1)}>Go back</button>
-                <h3>{title}</h3>
-                <img className="article-img" src={article_img_url} alt={title} />
-                <h4><span className="by-author">By</span> {author}</h4>
-                <p className="article-body">{body}</p>
-                <p>{formatDate(created_at)}</p>
-                <p>{votes + userVotes} votes</p>
-                <button className="like-btn" onClick={handleLike}>{isClicked ? <FcLike /> : <FcLikePlaceholder />}</button>
+        <div className="flex flex-col space-x-3 align-middle">
+            <article className="space-y-3">
+                <div className="flex justify-between space-x-1">
+                    <h3 className="font-bold">{title}</h3>
+                    <IoCaretBackCircleOutline
+                        className="w-8 h-8 text-green-500 rounded-full hover:shadow hover:cursor-pointer"
+                        onClick={() => navigate(-1)}
+                    />
+                </div>
+                <img className="rounded mx-auto" src={article_img_url} alt={title} />
+                <div className="flex justify-between">
+                    <h4 className=""><span className="text-neutral-500 ">By</span> <span className="">{author}</span></h4>
+                    <p className="text-neutral-500">{formatDate(created_at)}</p>
+                </div>
+                <p className="">{body}</p>
+                <p className="text-neutral-500">{votes + userVotes} votes</p>
+                <button className="" onClick={handleLike}>{isClicked ? <FcLike /> : <FcLikePlaceholder />}</button>
             </article >
 
             <section>
@@ -81,6 +88,6 @@ export const SingleArticle = (props) => {
             <section>
                 <CommentsList user={user} article_id={article_id} comments={comments} setComments={setComments} />
             </section>
-        </>
+        </div>
     )
 }
