@@ -37,7 +37,7 @@ export const CommentForm = ({ user, setComments }) => {
   return (
     <form onSubmit={handleSubmit} className="flex flex-col w-full">
       <textarea
-        className="border w-full p-3"
+        className="border w-full p-1 rounded shadow"
         rows="3"
         type="text"
         placeholder="Add comment"

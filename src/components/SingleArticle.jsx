@@ -85,9 +85,7 @@ export const SingleArticle = (props) => {
 
             <CommentForm user={user} setComments={setComments} />
 
-            {/* <section>
-                <CommentsList user={user} article_id={article_id} comments={comments} setComments={setComments} />
-            </section> */}
+            <CommentsList user={user} article_id={article_id} comments={comments} setComments={setComments} />
         </div>
     )
 }

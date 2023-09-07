@@ -32,9 +32,9 @@ export const CommentsList = (props) => {
         />
     } else {
         return (
-            <section className="comment-list">
+            <section className="">
                 {!isDeleted && <p>Cannot delete. Please try again...</p>}
-                <ul>
+                <ul className="flex flex-col space-y-2">
                     {comments.map((comment) => {
                         return (
                             <li key={comment.comment_id} className="comment-li">
