@@ -26,7 +26,7 @@ export const ArticlePage = (props) => {
     }, [article_id])
 
     if (isLoading) {
-        return <p>...loading article {article_id}...</p>
+        return <p className="text-center text-neutral-500">...loading article {article_id}...</p>
     } else if (error) {
         return <Error
             errorStatus={error.response.status}
