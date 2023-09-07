@@ -4,7 +4,7 @@ import { useState } from "react"
 import { patchArticleVotes } from "../utils/api"
 import { CommentsList, CommentForm } from "../components"
 import { FcLikePlaceholder, FcLike } from "react-icons/fc"
-import { IoCaretBackCircleOutline } from "react-icons/io5"
+import { TiArrowBackOutline } from "react-icons/ti"
 
 
 export const SingleArticle = (props) => {
@@ -66,7 +66,7 @@ export const SingleArticle = (props) => {
             <article className="space-y-3">
                 <div className="flex justify-between space-x-1">
                     <h3 className="font-bold">{title}</h3>
-                    <IoCaretBackCircleOutline
+                    <TiArrowBackOutline
                         className="w-8 h-8 text-green-500 rounded-full hover:shadow hover:cursor-pointer"
                         onClick={() => navigate(-1)}
                     />

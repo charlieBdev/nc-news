@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
 import { AiOutlineComment } from "react-icons/ai"
 import { AiOutlineLike } from "react-icons/ai"
-import { formatDate } from "../utils/utils"
+import { formatDate, getTopicIcon, limitTextLength } from "../utils/utils"
 
 export const ArticleCard = (props) => {
     const {
@@ -11,11 +11,12 @@ export const ArticleCard = (props) => {
         created_at,
         votes,
         article_img_url,
-        comment_count
+        comment_count,
+        topic
     } = props.article
 
     return (
-        <article className="rounded-lg border shadow hover:shadow-lg h-full grid grid-cols-2 gap-2">
+        <article className="rounded-lg shadow hover:shadow-lg h-full grid grid-cols-2 gap-2">
 
             <div className="flex flex-col justify-between">
                 <Link to={`/article/${article_id}`}><img className="w-full rounded" src={article_img_url} alt={title} /></Link>
@@ -24,8 +25,11 @@ export const ArticleCard = (props) => {
 
             <div className="flex flex-col justify-between">
                 <div className="">
-                    <Link to={`/article/${article_id}`}><h3 className="font-bold">{title}</h3></Link>
-                    <h4 className=""><span className="text-neutral-500">By</span> <span className="">{author}</span></h4>
+                    <Link to={`/article/${article_id}`}><h3 className="font-bold">{limitTextLength(title, 50)}</h3></Link>
+                    <div className="flex space-x-1 items-center">
+                        <p className="text-green-500">{getTopicIcon(topic)}</p>
+                        <h4 className=""><span className="text-neutral-500">By</span> <span className="">{author}</span></h4>
+                    </div>
                 </div>
                 <div className="text-neutral-500 flex space-x-1 justify-end items-center p-1">
                     <p>{votes}</p>
