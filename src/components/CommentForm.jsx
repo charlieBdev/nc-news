@@ -35,12 +35,12 @@ export const CommentForm = ({ user, setComments }) => {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col w-full">
+    <form onSubmit={handleSubmit} className="flex flex-col w-full border-t border-b py-3">
       <textarea
         className="border w-full p-1 rounded shadow"
         rows="3"
         type="text"
-        placeholder="Add comment"
+        placeholder="Add a comment..."
         value={newComment}
         onChange={(event) => setNewComment(event.target.value)} />
       <p className={newComment.length > 160 ? "text-red-500 text-right" : 'text-neutral-500 text-right'}>{160 - newComment.length} chars left</p>

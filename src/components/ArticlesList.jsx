@@ -14,7 +14,7 @@ export const ArticlesList = ({ articles, isLoading, isError }) => {
     return (
       <div>
         {isLoading ? (
-          <p className="text-center">...loading...</p>
+          <p className="text-center animate-pulse">...loading...</p>
         ) : (
           <>
             {/* <p className="text-center p-3 text-neutral-500">{articles.length} articles found</p> */}

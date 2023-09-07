@@ -1,7 +1,7 @@
-import { useState } from "react"
-import { deleteComment, getCommentsByArticleId } from "../utils/api"
-import { formatDate } from "../utils/utils"
-import { RiDeleteBinLine, RiDeleteBinFill } from "react-icons/ri"
+import { useState } from "react";
+import { deleteComment, getCommentsByArticleId } from "../utils/api";
+import { formatDate } from "../utils/utils";
+import { RiDeleteBinLine, RiDeleteBinFill } from "react-icons/ri";
 
 export const CommentCard = (props) => {
   const {
@@ -10,7 +10,7 @@ export const CommentCard = (props) => {
     article_id,
     created_at,
     comment_id
-  } = props.comment
+  } = props.comment;
 
   const {
     comments,
@@ -19,24 +19,35 @@ export const CommentCard = (props) => {
     setIsDeleted,
     isDeleting,
     setIsDeleting,
-  } = props
+    user
+  } = props;
 
-  const { user } = props
+  const [showConfirmation, setShowConfirmation] = useState(false);
 
   const handleDelete = (e) => {
-    e.preventDefault()
-    setIsDeleting(true)
-    const promises = [deleteComment(comment_id), getCommentsByArticleId(article_id)]
-    return Promise.all(promises).then((res) => {
-      setComments(res[1])
-      setIsDeleted(true)
-      setIsDeleting(false)
-    })
-      .catch((err) => {
-        setIsDeleting(false)
-        setIsDeleted(false)
+    e.preventDefault();
+    setShowConfirmation(true);
+  };
+
+  const confirmDelete = () => {
+    setIsDeleting(true);
+    const promises = [deleteComment(comment_id), getCommentsByArticleId(article_id)];
+    Promise.all(promises)
+      .then((res) => {
+        setComments(res[1]);
+        setIsDeleted(true);
+        setIsDeleting(false);
       })
-  }
+      .catch((err) => {
+        setIsDeleting(false);
+        setIsDeleted(false);
+      });
+    setShowConfirmation(false);
+  };
+
+  const cancelDelete = () => {
+    setShowConfirmation(false);
+  };
 
   return (
     <>
@@ -48,17 +59,38 @@ export const CommentCard = (props) => {
 
         <h5 className="">{body}</h5>
         <div className="flex justify-end items-center">
-          {user === author && (
+          {user === author && !showConfirmation && (
             <button
               disabled={isDeleting}
               onClick={handleDelete}
-              className="w-8 h-8 text-green-500 rounded-full hover:shadow hover:cursor-pointer"
+              className="text-green-500 rounded-full hover:shadow hover:cursor-pointer"
             >
-              {!isDeleting ? <RiDeleteBinLine className="mx-auto" /> : <RiDeleteBinFill className="animate-pulse mx-auto" />}
+              {!isDeleting ? (
+                <RiDeleteBinLine className="mx-auto w-6 h-6" />
+              ) : (
+                <RiDeleteBinFill className="animate-pulse mx-auto w-6 h-6" />
+              )}
             </button>
+          )}
+          {showConfirmation && (
+            <div className="flex space-x-2 items-center">
+              <span className="text-red-500">Are you sure?</span>
+              <button
+                onClick={confirmDelete}
+                className="px-3 bg-red-500 text-white rounded-sm"
+              >
+                Yes
+              </button>
+              <button
+                onClick={cancelDelete}
+                className="px-3 text-center bg-green-500 text-white rounded-sm"
+              >
+                No
+              </button>
+            </div>
           )}
         </div>
       </div>
     </>
-  )
-}
+  );
+};

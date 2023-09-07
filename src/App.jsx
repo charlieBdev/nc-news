@@ -49,6 +49,7 @@ function App() {
                   topics={topics}
                   articles={articles}
                   setArticles={setArticles}
+                  isLoading={isLoading}
                   setIsLoading={setIsLoading}
                   setIsError={setIsError}
                 />
