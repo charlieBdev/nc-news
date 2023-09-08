@@ -3,14 +3,16 @@ import { NavLink, useNavigate, useSearchParams } from "react-router-dom"
 import { TbSortAscending } from "react-icons/tb"
 import { TbSortDescending } from "react-icons/tb"
 import { getArticles } from "../utils/api"
+import ArticlesFoundSkeleton from "./skeletons/ArticlesFoundSkeleton"
 
 export const SortOptions = ({
   topics,
   articles,
   setArticles,
-  isLoading,
-  setIsLoading,
-  setIsError }) => {
+  isLoadingArticles,
+  setIsLoadingArticles,
+  setIsError
+}) => {
 
   const navigate = useNavigate()
   const [searchParams, setSearchParams] = useSearchParams()
@@ -20,11 +22,11 @@ export const SortOptions = ({
   const [order, setOrder] = useState(searchParams.get("order"))
 
   useEffect(() => {
-    setIsLoading(true)
+    setIsLoadingArticles(true)
     getArticles(topic, sortBy, order)
       .then((newArticles) => {
         setArticles(newArticles)
-        setIsLoading(false)
+        setIsLoadingArticles(false)
       })
       .catch((err) => {
         setIsError(err.response)
@@ -51,8 +53,8 @@ export const SortOptions = ({
         })}
       </div>
       <div className="flex space-x-3 items-center">
-        {isLoading ? (
-          <p className="text-center p-3 text-neutral-500 animate-pulse">...please wait...</p>
+        {isLoadingArticles ? (
+          <ArticlesFoundSkeleton />
         ) : (
           <p className="text-center p-3 text-neutral-500">{articles.length} articles found</p>
         )}
@@ -61,7 +63,7 @@ export const SortOptions = ({
             setSortBy(e.target.value)
             navigate(`/articles/${topic}?sort_by=${e.target.value}&order=${order}`)
           }}
-          className="border hover:shadow"
+          className="border hover:shadow rounded"
           name="sort-select"
           id="sort-select"
         >

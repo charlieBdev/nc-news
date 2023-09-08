@@ -12,7 +12,7 @@ function App() {
   const [topics, setTopics] = useState([])
   const [articles, setArticles] = useState([])
 
-  const [isLoading, setIsLoading] = useState(true)
+  const [isLoadingArticles, setIsLoadingArticles] = useState(true)
   const [isError, setIsError] = useState(false)
   // const [isError, setIsError] = useState(null)
 
@@ -49,14 +49,14 @@ function App() {
                   topics={topics}
                   articles={articles}
                   setArticles={setArticles}
-                  isLoading={isLoading}
-                  setIsLoading={setIsLoading}
+                  isLoadingArticles={isLoadingArticles}
+                  setIsLoadingArticles={setIsLoadingArticles}
                   setIsError={setIsError}
                 />
                 <ArticlesList
                   articles={articles}
                   // setArticles={setArticles}
-                  isLoading={isLoading}
+                  isLoadingArticles={isLoadingArticles}
                   isError={isError}
                 />
               </>
