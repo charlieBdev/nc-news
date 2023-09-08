@@ -52,47 +52,45 @@ export const CommentCard = (props) => {
   };
 
   return (
-    <>
-      <div className={`shadow rounded p-1 hover:shadow-lg ${backgroundColourClass}`}>
-        <div className="flex justify-between text-neutral-500">
-          <h4>{author}...</h4>
-          <p className="text-xs">{formatDate(created_at)}</p>
-        </div>
-
-        <h5 className="">{body}</h5>
-        <div className="flex justify-end items-center">
-          {user === author && !showConfirmation && (
-            <button
-              disabled={isDeleting}
-              onClick={handleDelete}
-              className="text-green-500 rounded-full hover:shadow hover:cursor-pointer"
-            >
-              {!isDeleting ? (
-                <RiDeleteBinLine className="mx-auto w-6 h-6" />
-              ) : (
-                <RiDeleteBinFill className="animate-pulse mx-auto w-6 h-6" />
-              )}
-            </button>
-          )}
-          {showConfirmation && (
-            <div className="flex space-x-2 items-center">
-              <span className="text-red-500">Are you sure?</span>
-              <button
-                onClick={confirmDelete}
-                className="px-3 w-12 bg-red-500 text-white rounded-sm"
-              >
-                Yes
-              </button>
-              <button
-                onClick={cancelDelete}
-                className="px-3 w-12 text-center bg-green-500 text-white rounded-sm"
-              >
-                No
-              </button>
-            </div>
-          )}
-        </div>
+    <div className={`shadow rounded p-1 hover:shadow-lg ${backgroundColourClass}`}>
+      <div className="flex justify-between text-neutral-500">
+        <h4>{author}...</h4>
+        <p className="text-xs">{formatDate(created_at)}</p>
       </div>
-    </>
+
+      <h5 className="">{body}</h5>
+      <div className="flex justify-end items-center">
+        {user === author && !showConfirmation && (
+          <button
+            disabled={isDeleting}
+            onClick={handleDelete}
+            className="text-green-500 rounded-full hover:shadow hover:cursor-pointer"
+          >
+            {!isDeleting ? (
+              <RiDeleteBinLine className="mx-auto w-6 h-6" />
+            ) : (
+              <RiDeleteBinFill className="animate-pulse mx-auto w-6 h-6" />
+            )}
+          </button>
+        )}
+        {showConfirmation && (
+          <div className="flex space-x-2 items-center">
+            <span className="text-red-500">Are you sure?</span>
+            <button
+              onClick={confirmDelete}
+              className="px-3 w-12 bg-red-500 text-white rounded-sm"
+            >
+              Yes
+            </button>
+            <button
+              onClick={cancelDelete}
+              className="px-3 w-12 text-center bg-green-500 text-white rounded-sm"
+            >
+              No
+            </button>
+          </div>
+        )}
+      </div>
+    </div>
   )
 }
