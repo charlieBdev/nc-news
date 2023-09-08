@@ -34,12 +34,12 @@ function App() {
   }
 
   return (
-    <div className="flex flex-col font-sans">
+    <div className="font-sans">
       <Header user={user} />
 
-      <main className="p-3 h-screen">
+      <main className="p-3 h-[calc(100vh - 20)]">
         <Routes>
-          <Route path="/" element={<HomePage articles={articles}/>}></Route>
+          <Route path="/" element={<HomePage />}></Route>
           {/* <Route path="/articles/all" element={<ArticlesPage topic={topic} setTopic={setTopic} sortBy={sortBy} order={order} />}></Route> */}
           <Route
             path="/articles/:topic"

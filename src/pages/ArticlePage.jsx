@@ -33,10 +33,10 @@ export const ArticlePage = (props) => {
         />
     } else {
         return (
-            <div className="flex flex-col space-y-3 items-center lg:items-start lg:flex-row gap-2">
+            <div className="flex flex-col space-y-0 items-center lg:items-start lg:flex-row gap-2">
               <SingleArticle article={article} user={user} isLoadingArticle={isLoadingArticle}/>
 							
-							<div className="lg:w-1/4 lg:h-screen lg:overflow-y-auto">
+							<div className="lg:w-1/4 lg:h-screen lg:overflow-y-auto w-full">
 								{!isLoadingArticle && (
 									<div className=" bg-white">
 										<CommentForm

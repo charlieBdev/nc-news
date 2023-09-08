@@ -69,8 +69,8 @@ export const SingleArticle = (props) => {
     )
   } else {
     return (
-        <article className="space-y-3 lg:w-3/4">
-          <div className="lg:w-3/4 lg:mx-auto">
+        <article className="lg:text-lg lg:w-3/4">
+          <div className="lg:w-3/4 lg:mx-auto space-y-3 lg:space-y-6">
             <div className="flex justify-between space-x-1">
               <h1 className="font-bold text-lg">{title}</h1>
               <TiArrowBackOutline

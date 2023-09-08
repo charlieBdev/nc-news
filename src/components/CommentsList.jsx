@@ -26,7 +26,7 @@ export const CommentsList = (props) => {
 
     if (isLoadingComments) {
         return (
-            <section className="">
+            <section className="w-full">
                 {[1, 2, 3, 4, 5, 6].map((index) => (
                     <div key={index} className="bg-neutral-300 animate-pulse rounded p-1">
                         <CommentCardSkeleton />
@@ -41,7 +41,7 @@ export const CommentsList = (props) => {
         />
     } else {
         return (
-            <section className="">
+            <section className="w-full max-h-[calc(100vh - 20)]">
                 {!isDeleted && <p>Cannot delete. Please try again...</p>}
                 <ul className="flex flex-col space-y-2">
                     {comments.map((comment, index) => {
