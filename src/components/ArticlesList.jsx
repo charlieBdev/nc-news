@@ -1,7 +1,8 @@
 import { ArticleCard } from "../components"
 import { Error } from "../components"
+import ArticleCardSkeleton from "./skeletons/ArticleCardSkeleton"
 
-export const ArticlesList = ({ articles, isLoading, isError }) => {
+export const ArticlesList = ({ articles, isLoadingArticles, isError }) => {
 
   if (isError) {
     return (
@@ -13,8 +14,14 @@ export const ArticlesList = ({ articles, isLoading, isError }) => {
   } else {
     return (
       <div>
-        {isLoading ? (
-          <p className="text-center animate-pulse">...loading...</p>
+        {isLoadingArticles ? (
+          <ul className="grid gap-3 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            {Array.from({ length: 16 }).map((_, index) => (
+              <li key={index} className="">
+                <ArticleCardSkeleton />
+              </li>
+            ))}
+          </ul>
         ) : (
           <>
             {/* <p className="text-center p-3 text-neutral-500">{articles.length} articles found</p> */}
@@ -22,7 +29,7 @@ export const ArticlesList = ({ articles, isLoading, isError }) => {
               {articles.map((article) => {
                 return (
                   <li key={article.article_id} className="">
-                    <ArticleCard article={article} isLoading={isLoading} />
+                    <ArticleCard article={article} />
                   </li>
                 )
               })}
