@@ -66,30 +66,46 @@ export const SingleArticle = (props) => {
   }
 
   return (
-    <div className="flex flex-col space-y-3 items-center">
-      <article className="space-y-3">
-        <div className="flex justify-between space-x-1">
-          <h3 className="font-bold">{title}</h3>
-          <TiArrowBackOutline
-            className="w-8 h-8 min-w-8 min-h-8 text-green-500 rounded-full hover:shadow hover:cursor-pointer"
-            onClick={() => navigate(-1)}
-          />
+    <div className="flex flex-col space-y-3 items-center lg:items-start lg:flex-row gap-2">
+      <article className="space-y-3 lg:w-3/4">
+        <div className="lg:w-3/4 lg:mx-auto">
+          <div className="flex justify-between space-x-1">
+            <h1 className="font-bold">{title}</h1>
+            <TiArrowBackOutline
+              className="w-8 h-8 min-w-8 min-h-8 text-green-500 rounded-full hover:shadow hover:cursor-pointer"
+              onClick={() => navigate(-1)}
+            />
+          </div>
+          <img className="rounded mx-auto lg:w-2/4" src={article_img_url} alt={title} />
+          <div className="flex justify-between">
+            <h2 className=""><span className="text-neutral-500 ">By</span> <span className="">{author}</span></h2>
+            <p className="text-neutral-500">{formatDate(created_at)}</p>
+          </div>
+          <p className="">{body}</p>
+          <div className="flex space-x-1 items-center justify-end">
+            <p className="text-neutral-500 text-sm">{votes + userVotes}</p>
+            <button className="text-green-500 rounded-full hover:shadow hover:cursor-pointer" onClick={handleLike}>{isClicked ? <AiFillLike className="w-8 h-8" /> : <AiOutlineLike className="w-8 h-8" />}</button>
+          </div>
         </div>
-        <img className="rounded mx-auto" src={article_img_url} alt={title} />
-        <div className="flex justify-between">
-          <h4 className=""><span className="text-neutral-500 ">By</span> <span className="">{author}</span></h4>
-          <p className="text-neutral-500">{formatDate(created_at)}</p>
-        </div>
-        <p className="">{body}</p>
-        <div className="flex space-x-1 items-center justify-end">
-          <p className="text-neutral-500 text-sm">{votes + userVotes}</p>
-          <button className="text-green-500 rounded-full hover:shadow hover:cursor-pointer" onClick={handleLike}>{isClicked ? <AiFillLike className="w-8 h-8" /> : <AiOutlineLike className="w-8 h-8" />}</button>
-        </div>
+        
       </article >
 
-      <CommentForm user={user} setComments={setComments} />
-
-      <CommentsList user={user} article_id={article_id} comments={comments} setComments={setComments} />
+      <div className="lg:w-1/4 lg:h-screen lg:overflow-y-auto">
+        <div className=" bg-white">
+          <CommentForm
+            user={user}
+            setComments={setComments} 
+          />
+        </div>
+        <div className="">
+          <CommentsList
+            user={user}
+            article_id={article_id}
+            comments={comments}
+            setComments={setComments}
+          />
+        </div>
+      </div>
     </div>
   )
 }

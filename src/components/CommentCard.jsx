@@ -19,7 +19,9 @@ export const CommentCard = (props) => {
     setIsDeleted,
     isDeleting,
     setIsDeleting,
-    user
+    user,
+    index,
+    backgroundColourClass
   } = props;
 
   const [showConfirmation, setShowConfirmation] = useState(false);
@@ -51,7 +53,7 @@ export const CommentCard = (props) => {
 
   return (
     <>
-      <div className="shadow rounded p-1 hover:shadow-lg">
+      <div className={`shadow rounded p-1 hover:shadow-lg ${backgroundColourClass}`}>
         <div className="flex justify-between text-neutral-500">
           <h4>{author}...</h4>
           <p className="text-xs">{formatDate(created_at)}</p>
@@ -77,13 +79,13 @@ export const CommentCard = (props) => {
               <span className="text-red-500">Are you sure?</span>
               <button
                 onClick={confirmDelete}
-                className="px-3 bg-red-500 text-white rounded-sm"
+                className="px-3 w-12 bg-red-500 text-white rounded-sm"
               >
                 Yes
               </button>
               <button
                 onClick={cancelDelete}
-                className="px-3 text-center bg-green-500 text-white rounded-sm"
+                className="px-3 w-12 text-center bg-green-500 text-white rounded-sm"
               >
                 No
               </button>
@@ -92,5 +94,5 @@ export const CommentCard = (props) => {
         </div>
       </div>
     </>
-  );
-};
+  )
+}

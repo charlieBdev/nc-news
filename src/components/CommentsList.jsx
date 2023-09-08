@@ -35,7 +35,7 @@ export const CommentsList = (props) => {
             <section className="">
                 {!isDeleted && <p>Cannot delete. Please try again...</p>}
                 <ul className="flex flex-col space-y-2">
-                    {comments.map((comment) => {
+                    {comments.map((comment, index) => {
                         return (
                             <li key={comment.comment_id} className="comment-li">
                                 <CommentCard
@@ -47,6 +47,7 @@ export const CommentsList = (props) => {
                                     setIsDeleted={setIsDeleted}
                                     isDeleting={isDeleting}
                                     setIsDeleting={setIsDeleting}
+                                    backgroundColourClass={index % 2 === 0 ? 'bg-white' : 'bg-neutral-100'}
                                 />
                             </li>
                         )
