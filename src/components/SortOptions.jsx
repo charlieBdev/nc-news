@@ -21,12 +21,11 @@ export const SortOptions = ({
   const [order, setOrder] = useState(searchParams.get("order") || "desc")
 
   useEffect(() => {
+    setIsError(false)
     setIsLoadingArticles(true)
-    console.log(topic, sortBy, order, '<<< useEffect')
-    getArticles(topic, sortBy, order.toUpperCase())
+    getArticles(topic, sortBy, order)
       .then((newArticles) => {
         setArticles(newArticles)
-        console.log(articles, '<<< articles from API')
         setIsLoadingArticles(false)
       })
       .catch((err) => {
@@ -65,9 +64,10 @@ export const SortOptions = ({
           name="sort-select"
         >
           <option value="created_at">Date</option>
-          <option value="comment_count">Comments</option>
-          <option value="votes">Votes</option>
           <option value="author">Author</option>
+          <option value="comment_count">Comments</option>
+          <option value="title">Title</option>
+          <option value="votes">Votes</option>
         </select>
         <button
           onClick={(e) => {

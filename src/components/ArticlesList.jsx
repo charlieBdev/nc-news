@@ -3,7 +3,6 @@ import { Error } from "../components"
 import ArticleCardSkeleton from "./skeletons/ArticleCardSkeleton"
 
 export const ArticlesList = ({ articles, isLoadingArticles, isError }) => {
-
   if (isError) {
     return (
       <Error
