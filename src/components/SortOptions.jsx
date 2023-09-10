@@ -35,7 +35,7 @@ export const SortOptions = ({
 
 
   return (
-    <div className="pb-3 flex flex-col justify-center items-center">
+    <div className="pb-3 flex flex-col items-center">
       <ul className="flex space-x-3 lg:space-x-6">
         {topics.map(({ slug }) => (
           <li key={slug} >
@@ -48,39 +48,41 @@ export const SortOptions = ({
           </li>
         ))}
       </ul>
-      <div className="flex space-x-3 items-center">
+      <div className="grid grid-cols-2 gap-2 items-end space-y-2">
         {isLoadingArticles ? (
           <ArticlesFoundSkeleton />
         ) : (
-          <p className="text-center p-3 text-neutral-500">{articles.length} articles found</p>
+          <p className="text-right text-neutral-500">{articles.length} articles found</p>
         )}
-        <select
-          onChange={(e) => {
-            const newSortBy = e.target.value
-            setSortBy(newSortBy)
-            navigate(`/articles/${topic}?sort_by=${newSortBy}&order=${order}`)
-          }}
-          className="border hover:shadow rounded"
-          name="sort-select"
-        >
-          <option value="created_at">Date</option>
-          <option value="author">Author</option>
-          <option value="comment_count">Comments</option>
-          <option value="title">Title</option>
-          <option value="votes">Votes</option>
-        </select>
-        <button
-          onClick={(e) => {
-            const newOrder = order === "desc" ? "asc" : "desc"
-            setOrder(newOrder)
-            navigate(`/articles/${topic}?sort_by=${sortBy}&order=${newOrder}`)
-          }}
-          id="order"
-          value={order}
-          className="text-2xl hover:shadow"
-        >
-          {order === 'asc' ? <TbSortAscending /> : <TbSortDescending />}
-        </button>
+        <div className="flex space-x-3">
+          <select
+            onChange={(e) => {
+              const newSortBy = e.target.value
+              setSortBy(newSortBy)
+              navigate(`/articles/${topic}?sort_by=${newSortBy}&order=${order}`)
+            }}
+            className="border hover:shadow rounded"
+            name="sort-select"
+            >
+            <option value="created_at">Date</option>
+            <option value="author">Author</option>
+            <option value="comment_count">Comments</option>
+            <option value="title">Title</option>
+            <option value="votes">Votes</option>
+          </select>
+          <button
+            onClick={(e) => {
+              const newOrder = order === "desc" ? "asc" : "desc"
+              setOrder(newOrder)
+              navigate(`/articles/${topic}?sort_by=${sortBy}&order=${newOrder}`)
+            }}
+            id="order"
+            value={order}
+            className="text-2xl hover:shadow"
+            >
+            {order === 'asc' ? <TbSortAscending /> : <TbSortDescending />}
+          </button>
+        </div>
       </div>
     </div>
   )

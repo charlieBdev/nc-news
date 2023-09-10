@@ -40,7 +40,6 @@ export const SingleArticle = (props) => {
       patchArticleVotes(article_id, 1)
         .then(() => {
           setIsClicked(true)
-          // localStorage.setItem(`article_${article_id}_liked`, 'true')
         })
         .catch((err) => {
           setUserVotes((currentUserVotes) => {
@@ -52,7 +51,6 @@ export const SingleArticle = (props) => {
       patchArticleVotes(article_id, -1)
         .then(() => {
           setIsClicked(false)
-          // localStorage.removeItem(`article_${article_id}_liked`);
         })
         .catch((err) => {
           setUserVotes((currentUserVotes) => {
@@ -75,7 +73,7 @@ export const SingleArticle = (props) => {
               <h1 className="font-bold text-lg">{title}</h1>
               <TiArrowBackOutline
                 className="w-8 h-8 min-w-8 min-h-8 text-green-500 rounded-full hover:shadow hover:cursor-pointer"
-                onClick={() => navigate(-1)}
+                onClick={() => navigate('/articles/all')}
               />
             </div>
             <img className="rounded mx-auto lg:w-2/4" src={article_img_url} alt={title} />

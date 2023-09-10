@@ -1,7 +1,7 @@
 
 const ArticlesFoundSkeleton = () => {
   return (
-    <p className="text-center text-neutral-500 p-3 rounded animate-pulse">...please wait...</p>
+    <p className="text-right text-neutral-500 animate-pulse">...please wait...</p>
   )
 }
 
