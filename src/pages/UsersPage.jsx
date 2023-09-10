@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { getUsers } from "../utils/api"
 import { UserCard } from "../components/UserCard"
+import { UserContext } from "../context/userContext"
 
 export const UsersPage = () => {
 
@@ -12,7 +13,6 @@ export const UsersPage = () => {
     getUsers()
       .then((users) => {
         setUsers(users)
-        console.log(users, '<<< users')
         setIsLoadingUsers(false)
       })
       .catch((err) => {
@@ -26,7 +26,7 @@ export const UsersPage = () => {
       <ul className="grid gap-3 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {users.map((user) => {
           return (
-            <li key={user.username}>
+            <li key={user.username} >
               <UserCard 
                  username={user.username} 
                  avatar_url={user.avatar_url}

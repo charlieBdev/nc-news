@@ -1,18 +1,19 @@
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { getArticleById } from "../utils/api"
 import { Error, SingleArticle } from "../components"
 import { CommentsList, CommentForm } from "../components"
+import { UserContext } from "../context/userContext"
 
-export const ArticlePage = (props) => {
 
-    const { user } = props
+export const ArticlePage = ({ currentUser }) => {
 
     const { article_id } = useParams()
     const [article, setArticle] = useState([])
     const [isLoadingArticle, setIsLoadingArticle] = useState(true)
     const [error, setError] = useState(null)
 		const [comments, setComments] = useState([])
+    const { currentUser: { username, avatar_url } } = useContext(UserContext)
 
     useEffect(() => {
         getArticleById(article_id)
@@ -34,13 +35,13 @@ export const ArticlePage = (props) => {
     } else {
         return (
             <div className="flex flex-col space-y-0 items-center lg:items-start lg:flex-row gap-2">
-              <SingleArticle article={article} user={user} isLoadingArticle={isLoadingArticle}/>
+              <SingleArticle article={article} isLoadingArticle={isLoadingArticle}/>
 							
 							<div className="lg:w-1/4 lg:h-screen lg:overflow-y-auto w-full">
 								{!isLoadingArticle && (
 									<div className=" bg-white">
 										<CommentForm
-											user={user}
+											username={username}
 											setComments={setComments} 
 										/>
 									</div>
@@ -48,7 +49,7 @@ export const ArticlePage = (props) => {
 								
 								<div className="">
 									<CommentsList
-										user={user}
+										username={username}
 										article_id={article_id}
 										comments={comments}
 										setComments={setComments}

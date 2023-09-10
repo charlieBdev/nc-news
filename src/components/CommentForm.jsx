@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { postComment } from "../utils/api"
 import { useParams } from "react-router-dom"
 
-export const CommentForm = ({ user, setComments }) => {
+export const CommentForm = ({ username, setComments }) => {
 
   const { article_id } = useParams()
   const [newComment, setNewComment] = useState('')
@@ -18,7 +18,7 @@ export const CommentForm = ({ user, setComments }) => {
 
     if (newComment.length > 0 && newComment.length <= 160) {
       setBtnIsDisabled(true)
-      postComment(article_id, user, newComment)
+      postComment(article_id, username, newComment)
         .then((res) => {
           setBtnIsDisabled(false)
           setComments((currComments) => {

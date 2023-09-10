@@ -13,15 +13,13 @@ export const CommentCard = (props) => {
   } = props.comment;
 
   const {
-    comments,
     setComments,
-    isDeleted,
     setIsDeleted,
     isDeleting,
     setIsDeleting,
-    user,
-    index,
-    backgroundColourClass
+    username,
+    backgroundColourClass,
+    currentUser
   } = props;
 
   const [showConfirmation, setShowConfirmation] = useState(false);
@@ -60,7 +58,7 @@ export const CommentCard = (props) => {
 
       <h5 className="">{body}</h5>
       <div className="flex justify-end items-center">
-        {user === author && !showConfirmation && (
+        {username === author && !showConfirmation && (
           <button
             disabled={isDeleting}
             onClick={handleDelete}

@@ -11,7 +11,7 @@ export const SingleArticle = (props) => {
 
   const navigate = useNavigate()
 
-  const { user, isLoadingArticle } = props
+  const { isLoadingArticle } = props
   const {
     article_id,
     title,
@@ -24,8 +24,6 @@ export const SingleArticle = (props) => {
 
   const [userVotes, setUserVotes] = useState(0)
   const [isClicked, setIsClicked] = useState(false)
-
-  // const isLiked = localStorage.getItem(`article_${article_id}_liked`) === 'false'
 
   const handleLike = (event) => {
     event.preventDefault()

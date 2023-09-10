@@ -4,9 +4,8 @@ import { useEffect, useState } from "react"
 import { Error } from "../components"
 import CommentCardSkeleton from "./skeletons/CommentCardSkeleton"
 
-export const CommentsList = (props) => {
+export const CommentsList = ({ article_id, comments, setComments, username }) => {
 
-    const { article_id, comments, setComments, user } = props
     const [isLoadingComments, setIsLoadingComments] = useState(true)
     const [isDeleting, setIsDeleting] = useState(false)
     const [isDeleted, setIsDeleted] = useState(true)
@@ -26,12 +25,14 @@ export const CommentsList = (props) => {
 
     if (isLoadingComments) {
         return (
-            <section className="w-full">
-                {[1, 2, 3, 4, 5, 6].map((index) => (
-                    <div key={index} className="bg-neutral-300 animate-pulse rounded p-1">
+            <section className="w-full max-h-[calc(100vh - 20)]">
+                <ul className="flex flex-col space-y-2">
+                  {[1, 2, 3, 4, 5, 6].map((index) => (
+                    <li key={index} className="bg-neutral-300 animate-pulse rounded p-1">
                         <CommentCardSkeleton />
-                    </div>
-                ))}
+                    </li>
+                  ))}
+                </ul>
             </section>
         )
     } else if (error) {
@@ -48,7 +49,7 @@ export const CommentsList = (props) => {
                         return (
                             <li key={comment.comment_id} className="">
                                 <CommentCard
-                                    user={user}
+                                    username={username}
                                     comment={comment}
                                     comments={comments}
                                     setComments={setComments}
