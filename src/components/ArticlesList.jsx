@@ -27,7 +27,7 @@ export const ArticlesList = ({ articles, isLoadingArticles, isError }) => {
             <ul className="grid gap-3 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
               {articles.map((article) => {
                 return (
-                  <li key={article.article_id} className="">
+                  <li key={article.article_id}>
                     <ArticleCard article={article} />
                   </li>
                 )

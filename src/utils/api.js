@@ -54,3 +54,9 @@ export const deleteComment = (comment_id) => {
     return res
   })
 }
+
+export const getUsers = () => {
+  return api.get("/users").then(({ data: { users } }) => {
+    return users
+  })
+}

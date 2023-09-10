@@ -2,7 +2,7 @@ import { Routes, Route } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import { Header, Error, SortOptions, ArticlesList } from './components'
 import { getTopics } from './utils/api'
-import { HomePage, ArticlePage } from './pages'
+import { HomePage, ArticlePage, UsersPage } from './pages'
 
 
 function App() {
@@ -64,6 +64,7 @@ function App() {
           </Route>
           {/* <Route path="/articles/:topic?" element={<Articles />}></Route> */}
           <Route path="/article/:article_id" element={<ArticlePage user={user} />}></Route>
+          <Route path="/users" element={<UsersPage />}></Route>
           <Route path="*" element={<Error errorStatus={error.errorStatus} errorMessage={error.errorMessage} />} />
         </Routes>
       </main>

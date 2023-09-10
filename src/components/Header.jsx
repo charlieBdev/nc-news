@@ -1,5 +1,6 @@
 import { Link, NavLink } from "react-router-dom"
 import logo from '../images/primary-logo.jpeg'
+import { Navbar } from "./Navbar"
 
 export const Header = ({ user }) => {
   return (
@@ -9,7 +10,7 @@ export const Header = ({ user }) => {
         <Link to="/"><h1 className="text-xl font-bold">NC News</h1></Link>
       </div>
       <div className="flex ml-auto space-x-6">
-        {/* <Navbar /> */}
+        <Navbar />
         <p className="text-neutral-500">Hi, {user}</p>
       </div>
     </header>
