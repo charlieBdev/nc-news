@@ -20,7 +20,7 @@ export const ArticleCard = (props) => {
 
       <div className="flex flex-col justify-between">
         <Link to={`/article/${article_id}`}><img className="w-full rounded hover:shadow-lg" src={article_img_url} alt={title} /></Link>
-        <p className="text-neutral-500 p-1">{formatDate(created_at)}</p>
+        <p className="text-sm text-neutral-500 p-1">{formatDate(created_at)}</p>
       </div>
 
       <div className="flex flex-col justify-between">

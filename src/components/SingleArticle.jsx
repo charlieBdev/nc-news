@@ -77,7 +77,7 @@ export const SingleArticle = (props) => {
             <img className="rounded mx-auto lg:w-2/4" src={article_img_url} alt={title} />
             <div className="flex justify-between">
               <h2 className=""><span className="text-neutral-500 ">By</span> <span className="">{author}</span></h2>
-              <p className="text-neutral-500">{formatDate(created_at)}</p>
+              <p className="text-sm text-neutral-500">{formatDate(created_at)}</p>
             </div>
             <p className="">{body}</p>
             <div className="flex space-x-1 items-center justify-end">
