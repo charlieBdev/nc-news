@@ -25,7 +25,10 @@ export const Header = () => {
 				<Navbar />
 				<div className="flex space-x-2 items-center">
 					<p className="text-neutral-500 hidden sm:block">Hi, {username}</p>
-					<img src={avatar_url} className="rounded-full border-2 w-8 h-8" />
+					<img
+						src={avatar_url}
+						className="rounded-full shadow border-2 w-8 h-8"
+					/>
 				</div>
 			</div>
 		</header>
