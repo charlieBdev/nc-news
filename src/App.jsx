@@ -7,11 +7,6 @@ import { HomePage, ArticlePage, UsersPage } from './pages'
 
 function App() {
 
-  // const [currentUser, setCurrentUser] = useState({ 
-  //   username: 'tickle122', 
-  //   avatar_url: "https://vignette.wikia.nocookie.net/mrmen/images/d/d6/Mr-Tickle-9a.png/revision/latest?cb=20180127221953"
-  // })
-
   const [topics, setTopics] = useState([])
   const [articles, setArticles] = useState([])
 
@@ -30,8 +25,6 @@ function App() {
       })
   }, [])
 
-  
-
   const error = {
     errorStatus: 404,
     errorMessage: 'Not found'
@@ -39,7 +32,6 @@ function App() {
 
   return (
     <div className="font-sans">
-      {/* <Header currentUser={currentUser} setCurrentUser={setCurrentUser}/> */}
       <Header />
 
       <main className="p-3 h-[calc(100vh - 20)]">
@@ -66,7 +58,6 @@ function App() {
               </>
             }>
           </Route>
-          {/* <Route path="/article/:article_id" element={<ArticlePage currentUser={currentUser} />}></Route> */}
           <Route path="/article/:article_id" element={<ArticlePage />}></Route>
           <Route path="/users" element={<UsersPage />}></Route>
           <Route path="*" element={<Error errorStatus={error.errorStatus} errorMessage={error.errorMessage} />} />
