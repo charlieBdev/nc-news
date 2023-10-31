@@ -13,7 +13,7 @@ export const Header = () => {
 
 	return (
 		<header className='h-20 p-3 flex items-center shadow sticky bg-white top-0 left-0'>
-			<div className='flex items-center space-x-3'>
+			<div className='flex items-center gap-3'>
 				<Link to='/'>
 					<img className='w-12 h-12 rounded' src={logo} />
 				</Link>
@@ -21,7 +21,7 @@ export const Header = () => {
 					<h1 className='text-xl font-semibold'>NC News</h1>
 				</Link>
 			</div>
-			<div className='flex ml-auto space-x-6'>
+			<div className='flex ml-auto gap-3'>
 				<Navbar />
 				<div className='flex space-x-2 items-center'>
 					<p className='text-neutral-500 hidden sm:block'>Hi, {username}</p>
