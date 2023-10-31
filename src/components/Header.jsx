@@ -12,22 +12,22 @@ export const Header = () => {
 	} = useContext(UserContext);
 
 	return (
-		<header className="h-20 p-3 flex items-center shadow sticky bg-white top-0 left-0 backdrop-filter backdrop-blur-lg bg-opacity-30">
-			<div className="flex items-center space-x-3">
-				<Link to="/">
-					<img className="w-12 h-12 rounded" src={logo} />
+		<header className='h-20 p-3 flex items-center shadow sticky bg-white top-0 left-0'>
+			<div className='flex items-center space-x-3'>
+				<Link to='/'>
+					<img className='w-12 h-12 rounded' src={logo} />
 				</Link>
-				<Link to="/">
-					<h1 className="text-xl font-semibold">NC News</h1>
+				<Link to='/'>
+					<h1 className='text-xl font-semibold'>NC News</h1>
 				</Link>
 			</div>
-			<div className="flex ml-auto space-x-6">
+			<div className='flex ml-auto space-x-6'>
 				<Navbar />
-				<div className="flex space-x-2 items-center">
-					<p className="text-neutral-500 hidden sm:block">Hi, {username}</p>
+				<div className='flex space-x-2 items-center'>
+					<p className='text-neutral-500 hidden sm:block'>Hi, {username}</p>
 					<img
 						src={avatar_url}
-						className="rounded-full shadow border-2 w-8 h-8"
+						className='rounded-full shadow border-2 w-8 h-8'
 					/>
 				</div>
 			</div>

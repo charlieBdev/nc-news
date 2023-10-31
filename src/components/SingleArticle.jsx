@@ -37,7 +37,7 @@ export const SingleArticle = (props) => {
 				.then(() => {
 					setIsClicked(true);
 				})
-				.catch((err) => {
+				.catch(() => {
 					setUserVotes((currentUserVotes) => {
 						return currentUserVotes - 1;
 					});
@@ -48,7 +48,7 @@ export const SingleArticle = (props) => {
 				.then(() => {
 					setIsClicked(false);
 				})
-				.catch((err) => {
+				.catch(() => {
 					setUserVotes((currentUserVotes) => {
 						return currentUserVotes + 1;
 					});
@@ -61,38 +61,38 @@ export const SingleArticle = (props) => {
 		return <SingleArticleSkeleton />;
 	} else {
 		return (
-			<article className="lg:text-lg lg:w-3/4">
-				<div className="lg:w-3/4 lg:mx-auto space-y-3 lg:space-y-6">
-					<div className="flex justify-between space-x-1">
-						<h1 className="font-semibold text-lg">{title}</h1>
+			<article className='lg:text-lg lg:w-3/4'>
+				<div className='lg:w-3/4 lg:mx-auto space-y-3 lg:space-y-6'>
+					<div className='flex justify-between space-x-1'>
+						<h1 className='font-semibold text-lg'>{title}</h1>
 						<TiArrowBackOutline
-							className="w-8 h-8 min-w-8 min-h-8 text-green-500 rounded-full hover:shadow hover:cursor-pointer"
+							className='w-8 h-8 min-w-8 min-h-8 text-green-500 rounded-full hover:shadow hover:cursor-pointer'
 							onClick={() => navigate('/articles/all')}
 						/>
 					</div>
 					<img
-						className="rounded mx-auto lg:w-2/4"
+						className='rounded mx-auto lg:w-2/4'
 						src={article_img_url}
 						alt={title}
 					/>
-					<div className="flex justify-between">
-						<h2 className="">
-							<span className="text-neutral-500 ">By</span>{' '}
-							<span className="">{author}</span>
+					<div className='flex justify-between'>
+						<h2 className=''>
+							<span className='text-neutral-500 '>By</span>{' '}
+							<span className=''>{author}</span>
 						</h2>
-						<p className="text-neutral-500">{formatDate(created_at)}</p>
+						<p className='text-neutral-500'>{formatDate(created_at)}</p>
 					</div>
-					<p className="">{body}</p>
-					<div className="flex space-x-1 items-center justify-end">
-						<p className="text-neutral-500 text-sm">{votes + userVotes}</p>
+					<p className=''>{body}</p>
+					<div className='flex space-x-1 items-center justify-end'>
+						<p className='text-neutral-500 text-sm'>{votes + userVotes}</p>
 						<button
-							className="text-green-500 rounded-full hover:shadow hover:cursor-pointer"
+							className='text-green-500 rounded-full hover:shadow hover:cursor-pointer'
 							onClick={handleLike}
 						>
 							{isClicked ? (
-								<AiFillLike className="w-8 h-8" />
+								<AiFillLike className='w-8 h-8' />
 							) : (
-								<AiOutlineLike className="w-8 h-8" />
+								<AiOutlineLike className='w-8 h-8' />
 							)}
 						</button>
 					</div>
