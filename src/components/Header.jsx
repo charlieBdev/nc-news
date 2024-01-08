@@ -7,8 +7,7 @@ import { UserContext } from '../context/userContext';
 // export const Header = ({ currentUser: { username, avatar_url }}) => {
 export const Header = () => {
 	const {
-		currentUser: { username, avatar_url },
-		setCurrentUser,
+		user: { username, avatar_url },
 	} = useContext(UserContext);
 
 	return (
