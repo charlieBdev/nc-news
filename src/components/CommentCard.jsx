@@ -79,13 +79,13 @@ export const CommentCard = (props) => {
 						<span className="text-red-500">Are you sure?</span>
 						<button
 							onClick={confirmDelete}
-							className="px-3 w-12 bg-red-500 text-white rounded-sm"
+							className="px-3 w-12 bg-green-500 text-white rounded-sm"
 						>
 							Yes
 						</button>
 						<button
 							onClick={cancelDelete}
-							className="px-3 w-12 text-center bg-green-500 text-white rounded-sm"
+							className="px-3 w-12 text-center bg-red-500 text-white rounded-sm"
 						>
 							No
 						</button>
