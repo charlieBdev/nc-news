@@ -13,7 +13,7 @@ export const UserCard = ({ username, avatar_url }) => {
 
 	return (
 		<div
-			className='w-full flex justify-between items-center p-3 rounded-lg shadow hover:shadow-lg'
+			className='w-full flex justify-between items-center p-3 rounded-lg shadow hover:shadow-lg hover:cursor-pointer'
 			onClick={handleClick}
 		>
 			<p>{username}</p>
